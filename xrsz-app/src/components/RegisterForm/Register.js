@@ -1,25 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Form,Grid } from 'semantic-ui-react';
+import AuthContext from '../../context/auth/authContext';
+
+
 
 const Register = () => {
-//add component level state
-const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-})
+    //initialize auth context so can access state here
+    const authContext = useContext(AuthContext)
 
-const { name, email, password, confirmPassword } = user;
+    // take signUp method out of authContext 
+    const { signUp, erorr } = authContext;
+    //add component level state
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    })
 
-//handl Change
-const handleChange = (e, {name, value }) => setUser({ [name]: value });
 
-//onSubmit 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Register submit')
-}
+    const { name, email, password, confirmPassword } = user;
+
+    //handl Change
+    // setUser object grabs the current vaule of user, get name attribute and set it to value
+    const handleChange = (e) => setUser({...user, [e.target.name]: e.target.value });
+
+    // handleSubmit 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // if(password !== confirmPassword) {
+
+        // }
+        let newUser = {
+            name,
+            email,
+            password,
+        }
+        signUp(newUser)
+    }
 
 return (
     <Grid container >
