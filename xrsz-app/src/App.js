@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './components/layout/NavBar';
+import Footer from './components/layout/Footer';
+import Workout from './components/pages/Workout';
+import Landing from './components/pages/Landing';
+import Musclegroup from './components/pages/Musclegroup';
+import { Container } from 'semantic-ui-react';
 import './App.css';
+import Register from './components/RegisterForm/Register';
+import Login from './components/LoginForm/Login';
 
-function App() {
+
+import WorkoutState from './context/workout/WorkoutState';
+import AuthState from './context/auth/AuthState';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthState>
+      <WorkoutState>
+        <Router>
+        {/* <div className="App"> */}
+          <NavBar />
+          {/* <Container className="main"> */}
+            <Switch>
+              <Route exact path='/' component={Landing} />
+              <Route exact path='/workout' component={Workout} />
+              <Route exact path='/musclegroup' component={Musclegroup} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+            </Switch>
+          {/* </Container> */}
+        {/* </div> */}
+        <Footer />  
+        </Router>
+      </WorkoutState>
+    </AuthState>
   );
 }
 
