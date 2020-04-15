@@ -2,9 +2,12 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthHeader from '../../utils/setAuthHeader';
 import { 
     REGISTER_SUCCESS,
     REGISTER_FAIL,
+    USER_LOADED,
+    AUTH_ERROR,
     LOGIN_FAIL,
     LOGOUT,
 } from '../types';
@@ -23,8 +26,25 @@ const AuthState = props => {
     const [state, dispatch] = useReducer(authReducer, initialState);
     //end point for auth 
     const endpoint = "http://localhost:4000/api/v1";
-    // Load User
-    
+    //  User
+    const getUser = async () => {
+        //load token into global headers
+        if(localStorage.token) { //if local storage has a token
+            setAuthHeader(localStorage.token); //pass in the token
+        }
+        try {
+            const res = await axios.get(`${endpoint}/auth`);
+
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({
+                type: AUTH_ERROR
+            });
+        }
+    }
     // Register User 
     const signUp = async newUser => {
 
@@ -38,7 +58,9 @@ const AuthState = props => {
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data
-            })
+            });
+            //load the user in
+            getUser();
         } catch (err) {
             console.log(err)
             dispatch({
@@ -69,6 +91,7 @@ const AuthState = props => {
             user: state.user,
             error: state.error,
             signUp,
+            getUser,
         }}>
             { props.children }
         </AuthContext.Provider>

@@ -13,6 +13,11 @@ import Login from './components/LoginForm/Login';
 
 import WorkoutState from './context/workout/WorkoutState';
 import AuthState from './context/auth/AuthState';
+import setAuthHeader from './utils/setAuthHeader';
+
+if(localStorage.token) { //if local storage has a token
+  setAuthHeader(localStorage.token); //pass in the token
+}
 
 const App = () => {
   return (

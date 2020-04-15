@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Reveal,Image, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 import './Workout.css'
 
 export const Workout = () => {
+    const authContext = useContext(AuthContext);
+
+    useEffect(() => {
+        authContext.getUser();
+        //es-lint-disable-next-line
+    }, [])
     return (
         <div className="container">
             <h1>Workout page</h1>

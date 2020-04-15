@@ -4,12 +4,20 @@ import AuthContext from '../../context/auth/authContext';
 
 
 
-const Register = () => {
+const Register = props => {
     //initialize auth context so can access state here
     const authContext = useContext(AuthContext)
 
     // take signUp method out of authContext 
-    const { signUp, erorr } = authContext;
+    const { signUp, isAuthenticated } = authContext;
+
+    useEffect(() => {
+        if(isAuthenticated) {
+            props.history.push('/workout')
+        }
+        
+    },[isAuthenticated, props.history]);
+
     //add component level state
     const [user, setUser] = useState({
         name: '',
