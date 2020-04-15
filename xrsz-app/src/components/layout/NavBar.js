@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './NavBar.css';
+import AuthContext from '../../context/auth/authContext';
 
 export const NavBar = ({ title }) => {
-    return (
+    const authContext = useContext(AuthContext);
+
+    const { isAuthenticated, logout, user } = authContext;
+    const handleLogout = () => {
+        logout();
+    }
+    const authLinks = (
+        <Menu size="huge" inverted >
+            <Menu.Item 
+            name="XRSZ">
+                {title}
+            </Menu.Item>
+            <Menu.Menu position="right">
+                <Menu.Item onClick={handleLogout}>
+                    Logout
+                </Menu.Item>
+                <Menu.Item>
+                    <Link to="#">Profile</Link>
+                </Menu.Item>
+            </Menu.Menu>
+        </Menu>
+    )
+
+    const guestLinks = (
         <Menu size="huge" inverted >
             
             <Menu.Item 
             name="XRSZ">
                 {title}
             </Menu.Item>
-                <Menu.Menu position="right">
-                    <Menu.Item>
-                        <Link to="/">Landing</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to="/workout">workout</Link>
-                    </Menu.Item>
-                </Menu.Menu>
         </Menu>
+    )
+
+    return (
+        <>
+            {isAuthenticated ? authLinks : guestLinks}
+        </>
     )
 }
 

@@ -69,15 +69,6 @@ const AuthState = props => {
                 payload: err.response.data.msg
             })
         }
-        // return fetch(`${endpoint}/auth/signup`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(newUser),
-        // })
-        //   .then((res) => res.json())
-        //   .catch((err) => console.log(err));
       };
     // Login User 
 
@@ -105,7 +96,7 @@ const AuthState = props => {
         }
     };
     // Logout User
-
+    const logout = () => dispatch({type: LOGOUT})
     return (
         //Provider pass in anthing we want available to entire app
         <AuthContext.Provider
@@ -117,6 +108,7 @@ const AuthState = props => {
             signUp,
             getUser,
             login,
+            logout,
         }}>
             { props.children }
         </AuthContext.Provider>
