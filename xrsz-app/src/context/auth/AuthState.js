@@ -96,7 +96,10 @@ const AuthState = props => {
         }
     };
     // Logout User
-    const logout = () => dispatch({type: LOGOUT})
+    const logout = () => dispatch({
+        type: LOGOUT
+    });
+    
     return (
         //Provider pass in anthing we want available to entire app
         <AuthContext.Provider

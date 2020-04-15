@@ -1,5 +1,5 @@
 import React from 'react'
-import { Comment, CommentGroup, Card } from 'semantic-ui-react';
+import { Comment, CommentGroup, Card, Icon } from 'semantic-ui-react';
 
 
 export const WorkoutItem = ({ workout }) => {
@@ -12,11 +12,15 @@ export const WorkoutItem = ({ workout }) => {
                     <Comment.Avatar src="https://picsum.photos/200"/>
                     <Comment.Content>
                         <Comment.Author>
-                            {name}
+                            {name} <Icon floated="right" name='plus'   />
+                            
                         </Comment.Author>
-
-                        <Comment.Metadata>{type}</Comment.Metadata>
-                        <Comment.Action>Save</Comment.Action>
+                        <div>
+                            <Comment.Metadata>{type}</Comment.Metadata>
+                        </div>
+                        <div>
+                            <Comment.Metadata>Save</Comment.Metadata>
+                        </div>
                     </Comment.Content>
                 </Comment>
             </CommentGroup>
