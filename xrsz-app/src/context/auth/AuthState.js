@@ -9,6 +9,7 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_FAIL,
+    LOGIN_SUCCESS,
     LOGOUT,
 } from '../types';
 // initial state and actions to perform 
@@ -80,6 +81,29 @@ const AuthState = props => {
       };
     // Login User 
 
+    const login = async user => {
+
+        try{
+            const res = await axios.post(`${endpoint}/auth`, user,{
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: res.data
+            });
+            //load the user in
+            getUser();
+        } catch (err) {
+            console.log(err)
+            dispatch({
+                type: LOGIN_FAIL,
+                payload: err.response.data.msg
+            })
+        }
+    };
     // Logout User
 
     return (
@@ -92,6 +116,7 @@ const AuthState = props => {
             error: state.error,
             signUp,
             getUser,
+            login,
         }}>
             { props.children }
         </AuthContext.Provider>

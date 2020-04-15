@@ -1,23 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Form,Grid } from 'semantic-ui-react';
+import AuthContext from '../../context/auth/authContext';
 
-const Login = () => {
+const Login = (props) => {
+
+const authContext = useContext(AuthContext)
+
+// take signUp method out of authContext 
+const { login, isAuthenticated } = authContext;
+
+useEffect(() => {
+    if(isAuthenticated) {
+        props.history.push('/workout')
+    }
+    
+},[isAuthenticated, props.history]);
+
+
 //add component level state
 const [user, setUser] = useState({
-    name: '',
+    email: '',
     password: '',
 })
 
-const { name, password} = user;
+const { email, password } = user;
 
 //handl Change
-const handleChange = (e, {name, value }) => setUser({ [name]: value });
+const handleChange = (e) => setUser({...user, [e.target.name]: e.target.value });
 
 //onSubmit 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login submit')
-}
+    login({
+        email,
+        password
+    })
+};
 
 return (
     <Grid container >
@@ -26,11 +44,11 @@ return (
                 <Form onSubmit={handleSubmit}>
                     <Form.Input required
                         fluid
-                        label='Username'
-                        placeholder='name'
-                        id='form-input-name'
-                        name='name'
-                        value={name}
+                        label='Email'
+                        placeholder='Email'
+                        id='form-input-email'
+                        name='email'
+                        value={email}
                         onChange={handleChange}
                     />
                     <Form.Input required
