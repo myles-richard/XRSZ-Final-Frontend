@@ -13,6 +13,7 @@ import PrivateRoute from './components/config/PrivateRoute';
 import WorkoutState from './context/workout/WorkoutState';
 import AuthState from './context/auth/AuthState';
 import setAuthHeader from './utils/setAuthHeader';
+import Profile from './components/pages/profile/Profile';
 
 if(localStorage.token) { //if local storage has a token
   setAuthHeader(localStorage.token); //pass in the token
@@ -32,6 +33,7 @@ const App = () => {
               <PrivateRoute exact path='/musclegroup' component={Musclegroup} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/profile' component={Profile} />
             </Switch>
           {/* </Container> */}
         {/* </div> */}

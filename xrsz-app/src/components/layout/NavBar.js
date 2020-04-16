@@ -23,7 +23,7 @@ export const NavBar = ({ title }) => {
                     Logout
                 </Menu.Item>
                 <Menu.Item>
-                    <Link to="#">Profile</Link>
+                    <Link to="/profile">Profile</Link>
                 </Menu.Item>
             </Menu.Menu>
         </Menu>
