@@ -7,7 +7,9 @@ import { REGISTER_SUCCESS,
     LOGOUT,
     UPDATE_SUCCESS,
     SET_CURRENT,
-    CLEAR_CURRENT
+    CLEAR_CURRENT,
+    DELETE_SUCCESS,
+    DELETE_FAIL
 } from "../types";
 
 
@@ -34,6 +36,16 @@ export default (state,action) => {
                 ...action.payload, // puts the token in state. this is the token 
                 isAuthenticated: true, 
             };
+        case DELETE_SUCCESS:
+            return {
+                ...state,
+                user: action.payload
+            }
+        case DELETE_FAIL: 
+            return {
+                ...state,
+                error: action.payload 
+            }
         case REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:

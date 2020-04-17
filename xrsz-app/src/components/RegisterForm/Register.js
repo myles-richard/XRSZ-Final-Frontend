@@ -1,15 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Form,Grid } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 
 
 const Register = props => {
     //initialize auth context so can access state here
     const authContext = useContext(AuthContext)
+    const alertContext = useContext(AlertContext)
 
     // take signUp method out of authContext 
     const { signUp, isAuthenticated } = authContext;
+    const { setAlert } = alertContext;
 
     useEffect(() => {
         if(isAuthenticated) {
@@ -37,15 +40,16 @@ const Register = props => {
     // handleSubmit 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // if(password !== confirmPassword) {
-
-        // }
-        let newUser = {
-            name,
-            email,
-            password,
+        if( password !== confirmPassword) {
+            setAlert('Passwords do not match')
+        } else {
+            let newUser = {
+                name,
+                email,
+                password,
+            }
+            signUp(newUser)
         }
-        signUp(newUser)
     }
 
 return (

@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import Workout from './components/pages/Workout';
 import Landing from './components/pages/Landing';
 import Musclegroup from './components/pages/Musclegroup';
+import Alerts from './components/layout/Alerts';
 import './App.css';
 import Register from './components/RegisterForm/Register';
 import Login from './components/LoginForm/Login';
@@ -12,6 +13,8 @@ import PrivateRoute from './components/config/PrivateRoute';
 
 import WorkoutState from './context/workout/WorkoutState';
 import AuthState from './context/auth/AuthState';
+// alert state and set alert action in any component we bring it into.
+import AlertState from './context/alert/AlertState'
 import setAuthHeader from './utils/setAuthHeader';
 import Profile from './components/pages/profile/Profile';
 
@@ -23,22 +26,25 @@ const App = () => {
   return (
     <AuthState>
       <WorkoutState>
-        <Router>
-        {/* <div className="App"> */}
-          <NavBar />
-          {/* <Container className="main"> */}
-            <Switch>
-              <Route exact path='/' component={Landing} />
-              <PrivateRoute exact path='/workout' component={Workout} />
-              <PrivateRoute exact path='/musclegroup' component={Musclegroup} />
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-              <PrivateRoute exact path='/profile' component={Profile} />
-            </Switch>
-          {/* </Container> */}
-        {/* </div> */}
-        <Footer />  
-        </Router>
+        <AlertState>
+          <Router>
+          {/* <div className="App"> */}
+            <NavBar />
+            {/* <Container className="main"> */}
+              <Alerts />
+                <Switch>
+                  <Route exact path='/' component={Landing} />
+                  <PrivateRoute exact path='/workout' component={Workout} />
+                  <PrivateRoute exact path='/musclegroup' component={Musclegroup} />
+                  <Route exact path='/register' component={Register} />
+                  <Route exact path='/login' component={Login} />
+                  <PrivateRoute exact path='/profile' component={Profile} />
+                </Switch>
+            {/* </Container> */}
+          {/* </div> */}
+          <Footer />  
+          </Router>
+        </AlertState>
       </WorkoutState>
     </AuthState>
   );

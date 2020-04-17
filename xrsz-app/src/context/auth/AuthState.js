@@ -14,7 +14,9 @@ import {
     UPDATE_SUCCESS,
     UPDATE_FAIL,
     CLEAR_CURRENT,
-    SET_CURRENT
+    SET_CURRENT,
+    DELETE_SUCCESS,
+    DELETE_FAIL
 } from '../types';
 // initial state and actions to perform 
 const AuthState = props => {
@@ -135,6 +137,26 @@ const AuthState = props => {
                 payload: err.response.data.msg
             })
         }
+    };
+
+    // delete user 
+    const deleteUser = async id => {
+        try{
+            const res = await axios.delete(`http://localhost:4000/api/v1/users/${id}`);
+
+            dispatch({
+                type: DELETE_SUCCESS,
+                payload: res.data
+            });
+            //load the user in
+            getUser();
+        } catch (err) {
+            console.log(err)
+            dispatch({
+                type: DELETE_FAIL,
+                payload: err.response.msg
+            })
+        }
     }
 
 
@@ -160,6 +182,7 @@ const AuthState = props => {
             update,
             setCurrent,
             clearCurrent,
+            deleteUser,
         }}>
             { props.children }
         </AuthContext.Provider>

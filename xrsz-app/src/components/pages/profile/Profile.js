@@ -8,7 +8,7 @@ const Profile = () => {
     const authContext = useContext(AuthContext);
 
     //take methods out of authcontext
-    const { update, user, setCurrent, clearCurrent, current } = authContext;
+    const { update, user, setCurrent, deleteUser, current } = authContext;
 
      //add component level state
      const [newUser, setUser] = useState({
@@ -16,7 +16,7 @@ const Profile = () => {
         name: '',
         })
 
-    const { email, name } = user;
+    const { email, name, _id } = user;
 
     useEffect(() => {
         if(current !== null) {
@@ -42,6 +42,11 @@ const Profile = () => {
         update(newUser)
     }
 
+    //delete
+    const onDelete = () => {
+        deleteUser(_id)
+    }
+
     return (
         <>
             <Grid centered={true}>
@@ -57,6 +62,11 @@ const Profile = () => {
                                 </Card.Description>
                             </Card.Content>
                         </Card>
+                    </Grid.Column>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Column>
+                        <Button onClick={onDelete} >Delete Profile</Button>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
