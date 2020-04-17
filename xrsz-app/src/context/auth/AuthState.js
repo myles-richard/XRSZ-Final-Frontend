@@ -11,6 +11,10 @@ import {
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT,
+    UPDATE_SUCCESS,
+    UPDATE_FAIL,
+    CLEAR_CURRENT,
+    SET_CURRENT
 } from '../types';
 // initial state and actions to perform 
 const AuthState = props => {
@@ -21,6 +25,8 @@ const AuthState = props => {
         isAuthenticated: null,
         user: null,
         error: null,
+        activeItem: '',
+        current: null
 
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
@@ -95,6 +101,43 @@ const AuthState = props => {
             })
         }
     };
+
+
+    // Set Current 
+    const setCurrent = updated => {
+        dispatch({ type: SET_CURRENT, payload: updated})
+    }
+
+    // Clear Current 
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT })
+    }
+
+    // Update User
+    const update = async current => {
+        try{
+            const res = await axios.put(`http://localhost:4000/api/v1/users/${current._id}`, current,{
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+
+            dispatch({
+                type: UPDATE_SUCCESS,
+                payload: res.data
+            });
+            //load the user in
+            getUser();
+        } catch (err) {
+            console.log(err)
+            dispatch({
+                type: UPDATE_FAIL,
+                payload: err.response.data.msg
+            })
+        }
+    }
+
+
     // Logout User
     const logout = () => dispatch({
         type: LOGOUT
@@ -108,10 +151,15 @@ const AuthState = props => {
             isAuthenticated: state.isAuthenticated,
             user: state.user,
             error: state.error,
+            activeItem: state.activeItem,
+            current: state.current,
             signUp,
             getUser,
             login,
             logout,
+            update,
+            setCurrent,
+            clearCurrent,
         }}>
             { props.children }
         </AuthContext.Provider>

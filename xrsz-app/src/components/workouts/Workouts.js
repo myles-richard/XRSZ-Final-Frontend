@@ -16,7 +16,7 @@ const Workouts = () => {
     return (
         <div>
             {workout.map(workouts => (
-            <WorkoutItem key={workouts.id} workout={workouts} />
+            <WorkoutItem key={workouts._id} workout={workouts} />
             ))}
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
@@ -8,21 +8,31 @@ import AuthContext from '../../context/auth/authContext';
 export const NavBar = ({ title }) => {
     const authContext = useContext(AuthContext);
 
-    const { isAuthenticated, logout, user } = authContext;
+    const { isAuthenticated, logout } = authContext;
+
+    //add component level state
+    // const [activeItem, setItem] = useState({
+    //     activeItem: '',
+    // })
+
+    // const handleActive = (e) => setItem({  activeItem: name  });
+
     const handleLogout = () => {
         logout();
     }
     const authLinks = (
         <Menu size="huge" inverted >
             <Menu.Item 
-            name="XRSZ">
-                {title}
+            name="XRSZ"
+            >
+                <Link to="/workout">{title}</Link>
             </Menu.Item>
             <Menu.Menu position="right">
                 <Menu.Item onClick={handleLogout}>
                     Logout
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item
+                >
                     <Link to="/profile">Profile</Link>
                 </Menu.Item>
             </Menu.Menu>

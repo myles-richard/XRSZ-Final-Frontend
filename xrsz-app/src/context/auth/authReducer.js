@@ -4,12 +4,20 @@ import { REGISTER_SUCCESS,
     AUTH_ERROR,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
-    LOGOUT
+    LOGOUT,
+    UPDATE_SUCCESS,
+    SET_CURRENT,
+    CLEAR_CURRENT
 } from "../types";
 
 
 export default (state,action) => {
     switch(action.type) {
+        case UPDATE_SUCCESS:
+            return {
+                ...state,
+                current: action.payload 
+            }
         case USER_LOADED:
             return {
                 ...state,
@@ -37,6 +45,16 @@ export default (state,action) => {
                 isAuthenticated: false,
                 user: null,
                 error: action.payload
+            }
+        case SET_CURRENT: 
+            return {
+                ...state,
+                current: action.payload
+            }
+        case CLEAR_CURRENT: 
+            return {
+                ...state,
+                current: null
             }
         default: 
             return state;

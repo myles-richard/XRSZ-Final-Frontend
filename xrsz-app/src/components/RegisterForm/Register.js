@@ -33,6 +33,7 @@ const Register = props => {
     // setUser object grabs the current vaule of user, get name attribute and set it to value
     const handleChange = (e) => setUser({...user, [e.target.name]: e.target.value });
 
+
     // handleSubmit 
     const handleSubmit = (e) => {
         e.preventDefault();
