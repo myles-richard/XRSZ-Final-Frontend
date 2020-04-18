@@ -3,21 +3,21 @@ import { WorkoutItem } from './WorkoutItem';
 import WorkoutContext from '../../context/workout/workoutContext';
 // import { Container } from 'semantic-ui-react';
 
-const Workouts = () => {
-    // gives us access to any state or method or actions associated with this context 
-    const workoutContext = useContext(WorkoutContext)
+const Workouts = (props) => {
+    // // gives us access to any state or method or actions associated with this context 
+    // const workoutContext = useContext(WorkoutContext)
 
-    const { workout, getWorkouts } = workoutContext;
+    // const { workout, getWorkouts } = workoutContext;
 
-    useEffect(() => {
-        getWorkouts();
-    }, [])
+    // useEffect(() => {
+    //     getWorkouts();
+    // }, [])
 
     return (
         <div>
-            {workout.map(workouts => (
-            <WorkoutItem key={workouts._id} workout={workouts} />
-            ))}
+            {props.workouts.map(workout => 
+            <WorkoutItem key={workout._id} workout={workout} />
+            )}
         </div>
     )
 }

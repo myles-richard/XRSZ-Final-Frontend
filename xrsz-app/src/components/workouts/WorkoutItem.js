@@ -4,7 +4,7 @@ import { Comment, CommentGroup, Card, Icon } from 'semantic-ui-react';
 
 export const WorkoutItem = ({ workout }) => {
     const { id, name, time, type } = workout;
-
+    console.log(workout)
     return (
         <Card style={{ padding: 10, margin: 10 }}>
             <CommentGroup>

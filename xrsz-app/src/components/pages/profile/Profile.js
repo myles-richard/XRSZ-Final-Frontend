@@ -3,7 +3,7 @@ import { Card, Grid, Modal, Image,Button, Form } from 'semantic-ui-react';
 import './Profile.css';
 import AuthContext from '../../../context/auth/authContext';
 
-const Profile = () => {
+const Profile = (props) => {
 
     const authContext = useContext(AuthContext);
 
@@ -14,9 +14,10 @@ const Profile = () => {
      const [newUser, setUser] = useState({
         email: '',
         name: '',
+        height: ''
         })
 
-    const { email, name, _id } = user;
+    const { height, email, name, _id } = user;
 
     useEffect(() => {
         if(current !== null) {
@@ -24,7 +25,8 @@ const Profile = () => {
         } else {
             setUser({
                 name: name,
-                email: email
+                email: email,
+                height: height
             })
         }
         // eslint-disable-next-line
@@ -45,6 +47,7 @@ const Profile = () => {
     //delete
     const onDelete = () => {
         deleteUser(_id)
+        props.history.push('/')
     }
 
     return (
@@ -59,6 +62,8 @@ const Profile = () => {
                                 <Card.Meta>6ft 185lb</Card.Meta>
                                 <Card.Description>
                                     Email: {user.email}
+                                    Joined: {user.date}
+                                    height: {user.height}
                                 </Card.Description>
                             </Card.Content>
                         </Card>
@@ -89,6 +94,14 @@ const Profile = () => {
                             id='form-input-email'
                             name='email'
                             value={newUser.email}
+                            onChange={handleChange}
+                        />
+                        <Form.Input 
+                            fluid
+                            label='Height'
+                            id='form-input-height'
+                            name='height'
+                            value={newUser.height}
                             onChange={handleChange}
                         />
                         <Form.Button

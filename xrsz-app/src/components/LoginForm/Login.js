@@ -1,17 +1,26 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Form,Grid } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
+
 
 const Login = (props) => {
 
 const authContext = useContext(AuthContext)
+const alertContext = useContext(AlertContext)
 
 // take signUp method out of authContext 
-const { login, isAuthenticated } = authContext;
+const { login, error, isAuthenticated } = authContext;
+
+const { setAlert } = alertContext;
 
 useEffect(() => {
     if(isAuthenticated) {
         props.history.push('/workout')
+    }
+
+    if (error === 'Invalid Credentials') {
+        setAlert(error);
     }
     
 },[isAuthenticated, props.history]);
@@ -31,10 +40,14 @@ const handleChange = (e) => setUser({...user, [e.target.name]: e.target.value })
 //onSubmit 
 const handleSubmit = (e) => {
     e.preventDefault();
-    login({
-        email,
-        password
-    })
+    if(email === '' || password === '') {
+        setAlert('Please fill in all fields')
+    } else {
+        login({
+            email,
+            password
+        })
+    }
 };
 
 return (

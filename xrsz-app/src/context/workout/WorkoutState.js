@@ -12,6 +12,7 @@ import {
 const WorkoutState = props => {
     const initialState = {
         workout: [],
+        error: null,
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
     const [state, dispatch] = useReducer(workoutReducer, initialState);
@@ -22,6 +23,8 @@ const WorkoutState = props => {
     const getWorkouts = async () => {
         try {
             const res = await axios.get(`${endpoint}/workout`);
+            console.log(res)
+            
 
             dispatch({
                 type: GET_WORKOUTS,
@@ -29,10 +32,11 @@ const WorkoutState = props => {
             });
 
         } catch (err) {
-            dispatch({
-                type: WORKOUT_ERROR,
-                payload: err.response.msg
-            });
+            console.log(err)
+            // dispatch({
+            //     type: WORKOUT_ERROR,
+            //     payload: err.response.msg
+            // });
         }
     }
 
@@ -43,6 +47,7 @@ const WorkoutState = props => {
         <WorkoutContext.Provider
         value={{
             workout: state.workout,
+            error: state.error,
             getWorkouts,
         }}>
             { props.children }

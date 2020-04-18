@@ -1,6 +1,6 @@
 //bring in all types 
 
-import { GET_WORKOUTS } from "../types";
+import { GET_WORKOUTS, WORKOUT_ERROR } from "../types";
 
 
 
@@ -15,6 +15,11 @@ export default (state, action) => {
                 //copy state
                 ...state,
                 workout: action.payload,
+            }
+        case WORKOUT_ERROR:
+            return {
+                ...state,
+                error: action.payload
             }
 
         default:
