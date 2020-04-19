@@ -11,15 +11,21 @@ const Register = props => {
     const alertContext = useContext(AlertContext)
 
     // take signUp method out of authContext 
-    const { signUp, isAuthenticated } = authContext;
+    const { signUp, isAuthenticated, error, clearErrors } = authContext;
     const { setAlert } = alertContext;
 
     useEffect(() => {
         if(isAuthenticated) {
             props.history.push('/workout')
         }
+
+        if(error === 'User already exists'){
+            setAlert(error)
+            clearErrors()
+            // eslint-disable-next-linex
+        };
         
-    },[isAuthenticated, props.history]);
+    },[error, isAuthenticated, props.history]);
 
     //add component level state
     const [user, setUser] = useState({
@@ -50,6 +56,10 @@ const Register = props => {
             }
             signUp(newUser)
         }
+    }
+
+    const onClick = () => {
+        props.history.push("/")
     }
 
 return (
@@ -96,12 +106,12 @@ return (
                     <Form.Button
                         fluid
                         type="submit"
-                    //     disabled={!name
-                    //     || !password
-                    //     || !confirmPassword
-                    //     || !email
-                    //   }
                     >Create Account</Form.Button>
+                    <Form.Button
+                        fluid
+                        type="back"
+                        onClick={onClick}
+                    >Back</Form.Button>
                 </Form>
             </Grid.Column>
     </Grid>

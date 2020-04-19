@@ -9,6 +9,7 @@ import Alerts from './components/layout/Alerts';
 import './App.css';
 import Register from './components/RegisterForm/Register';
 import Login from './components/LoginForm/Login';
+import selectedWorkout from './components/pages/selectedWorkout/selectedWorkout';
 import PrivateRoute from './components/config/PrivateRoute';
 
 import WorkoutState from './context/workout/WorkoutState';
@@ -17,6 +18,7 @@ import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState'
 import setAuthHeader from './utils/setAuthHeader';
 import Profile from './components/pages/profile/Profile';
+// import { div } from 'semantic-ui-react';
 
 if(localStorage.token) { //if local storage has a token
   setAuthHeader(localStorage.token); //pass in the token
@@ -30,7 +32,7 @@ const App = () => {
           <Router>
           {/* <div className="App"> */}
             <NavBar />
-            {/* <Container className="main"> */}
+            
               <Alerts />
                 <Switch>
                   <Route exact path='/' component={Landing} />
@@ -39,8 +41,9 @@ const App = () => {
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
                   <PrivateRoute exact path='/profile' component={Profile} />
+                  <PrivateRoute exact path='/workouts' component={selectedWorkout} />
                 </Switch>
-            {/* </Container> */}
+            
           {/* </div> */}
           <Footer />  
           </Router>

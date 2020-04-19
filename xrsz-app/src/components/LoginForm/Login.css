@@ -1,0 +1,10 @@
+.ui.container.grid {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+}

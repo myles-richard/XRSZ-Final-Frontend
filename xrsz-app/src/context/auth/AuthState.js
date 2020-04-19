@@ -16,7 +16,8 @@ import {
     CLEAR_CURRENT,
     SET_CURRENT,
     DELETE_SUCCESS,
-    DELETE_FAIL
+    DELETE_FAIL,
+    CLEAR_ERRORS
 } from '../types';
 // initial state and actions to perform 
 const AuthState = props => {
@@ -74,7 +75,7 @@ const AuthState = props => {
             console.log(err)
             dispatch({
                 type: REGISTER_FAIL,
-                payload: err.response.data.msg
+                payload: err.response.msg
             })
         }
       };
@@ -96,7 +97,6 @@ const AuthState = props => {
             //load the user in
             getUser();
         } catch (err) {
-            console.log(err)
             dispatch({
                 type: LOGIN_FAIL,
                 payload: err.response.data.msg
@@ -164,6 +164,12 @@ const AuthState = props => {
     const logout = () => dispatch({
         type: LOGOUT
     });
+
+    //Clear Errors
+    const clearErrors = () => dispatch({
+            type: CLEAR_ERRORS
+        });
+    
     
     return (
         //Provider pass in anthing we want available to entire app
@@ -183,6 +189,7 @@ const AuthState = props => {
             setCurrent,
             clearCurrent,
             deleteUser,
+            clearErrors
         }}>
             { props.children }
         </AuthContext.Provider>

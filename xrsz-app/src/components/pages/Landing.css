@@ -1,6 +1,27 @@
-.column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-image: url('../../images/xrszlogo.png'); */
+.textbox {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}
+.ui.container.textbox {
+    width: auto;
+}
+
+.headers {
+    background-image: linear-gradient(
+        to left bottom, 
+        rgba(252, 252, 252, 0.81),
+        rgba(254, 254, 254, 0.803)),url('../../images/xrszbluelogo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 95vh;
+}
+
+a.ui.large.fluid.button {
+    color: #003366;
+    background: white;
+    border: 1px solid #003366;
 }

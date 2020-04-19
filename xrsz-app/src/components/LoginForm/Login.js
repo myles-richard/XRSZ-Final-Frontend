@@ -1,19 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Form,Grid } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
+import './Login.css';
 
 
 const Login = (props) => {
 
 const authContext = useContext(AuthContext)
+// bring in alert beacause if its invalit we want to show alert 
 const alertContext = useContext(AlertContext)
 
-// take signUp method out of authContext 
+// take login method out of authContext 
 const { login, error, isAuthenticated } = authContext;
 
 const { setAlert } = alertContext;
-
+// checking to see if authenticated and for the error of invalid credentials 
 useEffect(() => {
     if(isAuthenticated) {
         props.history.push('/workout')
@@ -23,7 +26,7 @@ useEffect(() => {
         setAlert(error);
     }
     
-},[isAuthenticated, props.history]);
+},[error, isAuthenticated, props.history]);
 
 
 //add component level state
@@ -41,17 +44,21 @@ const handleChange = (e) => setUser({...user, [e.target.name]: e.target.value })
 const handleSubmit = (e) => {
     e.preventDefault();
     if(email === '' || password === '') {
-        setAlert('Please fill in all fields')
+        setAlert('Please fill in all fields');
     } else {
         login({
             email,
             password
-        })
+        });
     }
 };
 
+const onClick = () => {
+    props.history.push("/")
+}
+
 return (
-    <Grid container >
+    <Grid  className="container">
             <Grid.Column width='8' >
                 <h1>Login</h1>
                 <Form onSubmit={handleSubmit}>
@@ -77,12 +84,12 @@ return (
                     <Form.Button
                         fluid
                         type="submit"
-                    //     disabled={!name
-                    //     || !password
-                    //     || !confirmPassword
-                    //     || !email
-                    //   }
                     >Login</Form.Button>
+                    <Form.Button
+                        fluid="true"
+                        type="back"
+                        onClick={onClick}
+                    >Back</Form.Button>
                 </Form>
             </Grid.Column>
     </Grid>

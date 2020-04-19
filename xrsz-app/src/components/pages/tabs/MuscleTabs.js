@@ -36,15 +36,15 @@ const panes = [
 
 
   {
-    menuItem: 'Tab 1',
+    menuItem: 'Core',
     render: () => <Tab.Pane attached={false}><Workouts workouts={core}/></Tab.Pane>,
   },
   {
-    menuItem: 'Tab 2',
+    menuItem: 'Upper Body',
     render: () => <Tab.Pane attached={false}><Workouts workouts={upperBody} /></Tab.Pane>,
   },
   {
-    menuItem: 'Tab 3',
+    menuItem: 'Lower Body',
     render: () => <Tab.Pane attached={false}><Workouts workouts={lowerBody} /></Tab.Pane>,
   },
 ]

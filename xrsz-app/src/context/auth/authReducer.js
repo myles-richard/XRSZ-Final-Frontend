@@ -9,7 +9,8 @@ import { REGISTER_SUCCESS,
     SET_CURRENT,
     CLEAR_CURRENT,
     DELETE_SUCCESS,
-    DELETE_FAIL
+    DELETE_FAIL,
+    CLEAR_ERRORS
 } from "../types";
 
 
@@ -67,6 +68,11 @@ export default (state,action) => {
             return {
                 ...state,
                 current: null
+            }
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
             }
         default: 
             return state;
