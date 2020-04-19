@@ -1,29 +1,17 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+
 
 import { Comment, CommentGroup, Card, Icon, Modal, a } from 'semantic-ui-react';
-import selectedWorkout from '../pages/selectedWorkout/selectedWorkout';
+
 import WorkoutContext from '../../context/workout/workoutContext';
 
 export const WorkoutItem = ({ workout }) => {
 
     const workoutContext = useContext(WorkoutContext);
 
-    const { setCurrent, current, workoutOpen, getOne } = workoutContext
+    const { setCurrent } = workoutContext
 
-    //add component level state
-    //add component level state
-    // const [work, setWork] = useState({
-    //     workoutOpen: false,
-    // })
-    //add component level state
-    // const [myWorkout, setWorkout] = useState({
-    //     name: '',
-    //     time: '',
-    //     type: '',
-    //     exersize: '',
-    //     goodFor: '',
-    //     })
+
 
     const onClick = (e) => {
         e.preventDefault();
@@ -31,13 +19,13 @@ export const WorkoutItem = ({ workout }) => {
         console.log('hi')
     }
 
-    const { id, name, time, type, } = workout;
+    const { name, type, } = workout;
     
     
     return (
         
         <>
-                <Modal trigger={<Card style={{ padding: 10, margin: 10 }} onClick={onClick}>
+                <Modal  trigger={<Card style={{ padding: 10, margin: 10 }} onClick={onClick}>
                 <CommentGroup>
                     <Comment>
                         <Comment.Avatar src="https://picsum.photos/200"/>
@@ -58,12 +46,12 @@ export const WorkoutItem = ({ workout }) => {
             </Card>}>
                     <h2 style={{ textAlign: 'center'}}>{workout.name}</h2>
                     <Modal.Content>
-                        <div class="ui centered cards">
-                            <div class="ui card">
-                                <div class="content">
-                                <div class="header">Type: {workout.goodFor[0]}, {workout.goodFor[1]}</div>
-                                <div class="meta"> Avg Time:{workout.time}</div>
-                                <div class="description">
+                        <div className="ui centered cards">
+                            <div className="ui card">
+                                <div className="content">
+                                <div className="header">Type: {workout.goodFor[0]}, {workout.goodFor[1]}</div>
+                                <div className="meta"> Avg Time:{workout.time}</div>
+                                <div className="description">
                                     Leverage agile frameworks to provide a robust synopsis for high level overviews.
                                 </div>
                                 </div>

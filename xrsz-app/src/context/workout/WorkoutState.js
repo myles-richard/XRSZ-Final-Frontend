@@ -7,9 +7,6 @@ import {
     GET_ONE,
     SET_CURRENT,
     CLEAR_CURRENT,
-    WORKOUT_ERROR,
-    SAVE_WORKOUT, 
-    DELETE_WORKOUT,
 } from '../types';
 // initial state and actions to perform 
 const WorkoutState = props => {

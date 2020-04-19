@@ -5,11 +5,11 @@ import Footer from './components/layout/Footer';
 import Workout from './components/pages/Workout';
 import Landing from './components/pages/Landing';
 import Musclegroup from './components/pages/Musclegroup';
+import WorkoutType from './components/pages/WorkoutType';
 import Alerts from './components/layout/Alerts';
 import './App.css';
 import Register from './components/RegisterForm/Register';
 import Login from './components/LoginForm/Login';
-import selectedWorkout from './components/pages/selectedWorkout/selectedWorkout';
 import PrivateRoute from './components/config/PrivateRoute';
 
 import WorkoutState from './context/workout/WorkoutState';
@@ -41,7 +41,7 @@ const App = () => {
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
                   <PrivateRoute exact path='/profile' component={Profile} />
-                  <PrivateRoute exact path='/workouts' component={selectedWorkout} />
+                  <PrivateRoute exact path='/workouttype' component={WorkoutType} />
                 </Switch>
             
           {/* </div> */}

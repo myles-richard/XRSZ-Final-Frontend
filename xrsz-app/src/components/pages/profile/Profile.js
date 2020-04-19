@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Grid, Modal, Image,Button, Form } from 'semantic-ui-react';
+import { Card, Grid, Modal,Button, Form, Container } from 'semantic-ui-react';
 import './Profile.css';
 import AuthContext from '../../../context/auth/authContext';
 
@@ -49,9 +49,10 @@ const Profile = (props) => {
         deleteUser(_id)
         props.history.push('/')
     }
+    
 
     return (
-        <>
+        <Container>
             <Grid centered={true}>
                 <Grid.Row>
                     <Grid.Column >
@@ -69,54 +70,52 @@ const Profile = (props) => {
                         </Card>
                     </Grid.Column>
                 </Grid.Row>
-                <Grid.Row>
-                    <Grid.Column>
+                <Grid.Row >
+              
                         <Button onClick={onDelete} >Delete Profile</Button>
-                    </Grid.Column>
+
+                        <Modal dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Show Modal</Button>}>
+                            <Modal.Header>Edit Profile Info</Modal.Header>
+                            <Modal.Content>
+                                <Form onSubmit={handleSubmit}>
+                                <Form.Input 
+                                    fluid
+                                    label='name'
+                                    id='form-input-name'
+                                    name='name'
+                                    value={newUser.name}
+                                    onChange={handleChange}
+                                />
+                                <Form.Input 
+                                    fluid
+                                    label='Email'
+                                    id='form-input-email'
+                                    name='email'
+                                    value={newUser.email}
+                                    onChange={handleChange}
+                                />
+                                <Form.Input 
+                                    fluid
+                                    label='Height'
+                                    id='form-input-height'
+                                    name='height'
+                                    value={newUser.height}
+                                    onChange={handleChange}
+                                />
+                                <Form.Button
+                                    fluid
+                                    type="submit"
+                                    
+                                >Update</Form.Button>
+                                </Form>
+                            </Modal.Content>
+                        </Modal>
+                   
                 </Grid.Row>
             </Grid>
                 
-                <Modal dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Show Modal</Button>}>
-                    <Modal.Header>Edit Profile Info</Modal.Header>
-                    <Modal.Content>
-                        <Form onSubmit={handleSubmit}>
-                        <Form.Input 
-                            fluid
-                            label='name'
-                            id='form-input-name'
-                            name='name'
-                            value={newUser.name}
-                            onChange={handleChange}
-                        />
-                        <Form.Input 
-                            fluid
-                            label='Email'
-                            id='form-input-email'
-                            name='email'
-                            value={newUser.email}
-                            onChange={handleChange}
-                        />
-                        <Form.Input 
-                            fluid
-                            label='Height'
-                            id='form-input-height'
-                            name='height'
-                            value={newUser.height}
-                            onChange={handleChange}
-                        />
-                        <Form.Button
-                            fluid
-                            type="submit"
-                        //     disabled={!name
-                        //     || !password
-                        //     || !confirmPassword
-                        //     || !email
-                        //   }
-                        >Update</Form.Button>
-                        </Form>
-                    </Modal.Content>
-                </Modal>
-        </>
+                
+        </Container>
     )
 }
 

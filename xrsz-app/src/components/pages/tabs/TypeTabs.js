@@ -4,7 +4,7 @@ import Workouts from '../../workouts/Workouts';
 import WorkoutContext from '../../../context/workout/workoutContext';
 
 
-const MuscleTabs = () => {
+const TypeTabs = () => {
 
 // gives us access to any state or method or actions associated with this context 
 const workoutContext = useContext(WorkoutContext)
@@ -17,18 +17,18 @@ useEffect(() => {
 }, [])
 
 
-const core= [];
-const upperBody = [];
+const stability= [];
+const core = [];
 const lowerBody = [];
 console.log(workout)
  
 for(let workouts of workout) {
     console.log(workouts)
-    if(workouts.type.includes('Core')) {
+    if(workouts.goodFor.includes('stability')) {
+        stability.push(workouts)
+    } else if(workouts.goodFor.includes('core')){
         core.push(workouts)
-    } else if(workouts.type.includes('UpperBody')){
-        upperBody.push(workouts)
-    } else if(workouts.type.includes('LowerBody')){
+    } else if(workouts.goodFor.includes('LowerBody')){
         lowerBody.push(workouts)
     }
 }
@@ -37,15 +37,15 @@ const panes = [
 
 
   {
-    menuItem: 'Core',
-    render: () => <Tab.Pane attached={false}><Workouts workouts={core}/></Tab.Pane>,
+    menuItem: 'Stability',
+    render: () => <Tab.Pane attached={false}><Workouts workouts={stability}/></Tab.Pane>,
   },
   {
-    menuItem: 'Upper Body',
-    render: () => <Tab.Pane attached={false}><Workouts workouts={upperBody} /></Tab.Pane>,
+    menuItem: 'Endurance',
+    render: () => <Tab.Pane attached={false}><Workouts workouts={core} /></Tab.Pane>,
   },
   {
-    menuItem: 'Lower Body',
+    menuItem: 'Mobility',
     render: () => <Tab.Pane attached={false}><Workouts workouts={lowerBody} /></Tab.Pane>,
   },
 ]
@@ -54,4 +54,4 @@ const panes = [
       )
 }
 
-export default MuscleTabs
+export default TypeTabs;

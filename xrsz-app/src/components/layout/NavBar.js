@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './NavBar.css';
 import AuthContext from '../../context/auth/authContext';
@@ -10,18 +10,12 @@ export const NavBar = ({ title }) => {
 
     const { isAuthenticated, logout } = authContext;
 
-    //add component level state
-    // const [activeItem, setItem] = useState({
-    //     activeItem: '',
-    // })
-
-    // const handleActive = (e) => setItem({  activeItem: name  });
 
     const handleLogout = () => {
         logout();
     }
     const authLinks = (
-        <Menu size="huge" inverted >
+        <Menu pointing size="huge" >
             <Menu.Item 
             name="XRSZ"
             >

@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Form,Grid } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
@@ -25,7 +24,7 @@ useEffect(() => {
     if (error === 'Invalid Credentials') {
         setAlert(error);
     }
-    
+    // eslint-disable-next-line
 },[error, isAuthenticated, props.history]);
 
 
@@ -86,7 +85,7 @@ return (
                         type="submit"
                     >Login</Form.Button>
                     <Form.Button
-                        fluid="true"
+                        fluid
                         type="back"
                         onClick={onClick}
                     >Back</Form.Button>
