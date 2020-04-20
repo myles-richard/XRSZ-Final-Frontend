@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Card, Grid, Modal,Button, Form, Container } from 'semantic-ui-react';
 import './Profile.css';
 import AuthContext from '../../../context/auth/authContext';
+import Moment from 'react-moment';
 
 const Profile = (props) => {
 
@@ -14,10 +15,10 @@ const Profile = (props) => {
      const [newUser, setUser] = useState({
         email: '',
         name: '',
-        height: ''
+        goals: ''
         })
 
-    const { height, email, name, _id } = user;
+    const { goals, email, name, _id } = user;
 
     useEffect(() => {
         if(current !== null) {
@@ -26,7 +27,7 @@ const Profile = (props) => {
             setUser({
                 name: name,
                 email: email,
-                height: height
+                goals: goals
             })
         }
         // eslint-disable-next-line
@@ -61,9 +62,9 @@ const Profile = (props) => {
                                 <Card.Content>
                                     <Card.Header>{user.name}</Card.Header>
                                     <Card.Meta>Email: {user.email}</Card.Meta>
-                                    <Card.Meta>{user.height}ft 185lb</Card.Meta>
+                                    <Card.Meta>Joined: <Moment format='MM/DD/YYYY'>{user.date}</Moment></Card.Meta>
                                     <Card.Description>
-                                        Joined: {user.date}
+                                    Goals: {user.goals}
                                     </Card.Description>
                                 </Card.Content>
                             </Card>
@@ -95,10 +96,10 @@ const Profile = (props) => {
                                     />
                                     <Form.Input 
                                         fluid
-                                        label='Height'
-                                        id='form-input-height'
-                                        name='height'
-                                        value={newUser.height}
+                                        label='goals'
+                                        id='form-input-goals'
+                                        name='goals'
+                                        value={newUser.goals}
                                         onChange={handleChange}
                                     />
                                     <Form.Button
