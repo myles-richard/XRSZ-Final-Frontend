@@ -19,6 +19,7 @@ import {
     DELETE_FAIL,
     CLEAR_ERRORS
 } from '../types';
+
 // initial state and actions to perform 
 const AuthState = props => {
     const initialState = {
@@ -158,7 +159,6 @@ const AuthState = props => {
             })
         }
     }
-
 
     // Logout User
     const logout = () => dispatch({
