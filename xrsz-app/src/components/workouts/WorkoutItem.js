@@ -7,28 +7,17 @@ export const WorkoutItem = ({ workout }) => {
 
     const workoutContext = useContext(WorkoutContext);
 
-    const { setCurrent, getOne, current, isOpen } = workoutContext
-
- 
-    const onClick = (e) => {
-        e.preventDefault();
-        console.log(workout.exercise.length)
-        // getOne(current)
-    }
-
     const { name, type, } = workout;
     
-    
     return (
-        
         <>
-            <Modal closeIcon image trigger={<Card raised style={{ padding: 10, margin: 10 }} onClick={onClick}>
+            <Modal closeIcon basic image trigger={<Card raised style={{ padding: 10, margin: 10 }} >
                 <CommentGroup>
                     <Comment>
                         <Comment.Avatar src="https://picsum.photos/200"/>
                         <Comment.Content>
                             <Comment.Author>
-                                {name} <Icon floated="right" name='plus'   />
+                                {name} <Icon floated="right" name='plus'/>
                                 
                             </Comment.Author>
                             <div>
@@ -43,11 +32,11 @@ export const WorkoutItem = ({ workout }) => {
             </Card> }>
                 <h2 style={{ textAlign: 'center'}}>{workout.name}</h2>
                 <Modal.Content>
-                    <Segment className="segway">
+                    <div className="segway">
                         <div className="ui centered cards">
                             <div className="ui card">
                                 <div className="content">
-                                <div className="header">Type: {workout.goodFor[0]}, {workout.goodFor[1]}</div>
+                                <div className="header">Type: {workout.goodFor[0]} {workout.goodFor[1]}</div>
                                 <div className="meta"> Avg Time:{workout.time}</div>
                                 <div className="description">
                                     {workout.description}
@@ -55,9 +44,11 @@ export const WorkoutItem = ({ workout }) => {
                                 </div>
                             </div>
                         </div>
-                    </Segment>
-                    <Image centered fluid bordered  src={require("../../images/weights.jpeg")} />
-                        <h4>Exercises:</h4>
+                    </div>
+                        <div>
+                            <Image centered fluid bordered style={{paddingTop: 30}} src={require("../../images/weights.jpeg")} />
+                        </div>
+                    <h4>Exercises:</h4>
                     <div className="ui raised cards">
                         <div className="ui orange fluid card">
                             <div className="content">
@@ -96,16 +87,9 @@ export const WorkoutItem = ({ workout }) => {
                             </div>
                         </div>
                     </div>
-                    {/* <p>{workout.exercise[2].title}</p>
-                    <p>{workout.exercise[3].title}</p>
-                    <p>{workout.exercise[4].title}</p>
-                    <p>{workout.exercise[5].title}</p>
-                    <p>{workout.exercise[6].title}</p> */}
                 </Modal.Content> 
             </Modal>
         </>
         
     )
 };
-
-// export default WorkoutItem;

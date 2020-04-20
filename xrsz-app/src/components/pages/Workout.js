@@ -15,21 +15,14 @@ export const Workout = () => {
 
     return (
         <div className="workoutpage">
-            <Container >
-                <h1>Workout page</h1>
-                
+            <Container style={{margin: 30}}>
                 <div className="groups" >
-                    <Image style={{ paddingBottom: 20}} centered fluid bordered  src={require("../../images/weights.jpeg")} as={Link} to='/musclegroup'/>
+                    <Image style={{ paddingBottom: 20}} centered fluid bordered  src={require("../../images/musclegroup.jpeg")} as={Link} to='/musclegroup'/>
                 </div>
                 <div className="types" >
-                    <Image style={{ paddingBottom: 20}} centered fluid bordered  src={require("../../images/yoga.jpeg")}  as={Link} to='/workouttype'/>
+                    <Image  centered fluid bordered  src={require("../../images/exercisetypes.jpeg")}  as={Link} to='/workouttype'/>
                 </div>
             </Container>
-           
-            <h2 className="muscle">
-                <span className="primary">Muscle Group</span>
-            </h2>
-           
         </div>
     )
 }
