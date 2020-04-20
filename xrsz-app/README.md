@@ -23,10 +23,10 @@ HTML, CSS, Semantic-UI-React, NodeJS, MonogoDB, React
 
 ### `Wire Frames/User stories`
 ![frames](src/images/wireframe1.jpg)
-![frames](images/wireframe2.jpg)
-![frames](images/wireframe3.jpg)
-![frames](images/wireframe4.jpg)
-![frames](images/userstories.png)
+![frames](src/images/wireframe2.jpg)
+![frames](src/images/wireframe3.jpg)
+![frames](src/images/wireframe4.jpg)
+![frames](src/images/userstories.png)
 
 ### `installation steps`
 
