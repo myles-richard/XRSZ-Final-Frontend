@@ -1,6 +1,17 @@
-.container {
-    /* display: flex;
-    align-items: center; */
-    height: 95vh; 
-    /* background-color: red; */
+.ui.centered.grid {
+    padding-top: 40px;
+}
+
+.profiles {
+    background-image: url('../../../images/dumbells.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 95vh;
+    padding-top: 20px;
+}
+
+.ui.button {
+    color: #003366;
+    background: rgba(255, 251, 251, 0);
+    border: 1px solid #003366;
 }

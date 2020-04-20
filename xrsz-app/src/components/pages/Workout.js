@@ -8,22 +8,29 @@ import './Workout.css'
 export const Workout = () => {
     const authContext = useContext(AuthContext);
 
-
-
-
     useEffect(() => {
         authContext.getUser();
         //es-lint-disable-next-line
     }, [authContext])
+
     return (
-        <Container >
-            <h1>Workout page</h1>
-
-                    <Image centered bordered fluid src='https://picsum.photos/200' size='medium' as={Link} to='/musclegroup'/>
+        <div className="workoutpage">
+            <Container >
+                <h1>Workout page</h1>
                 
-                    <Image centered fluid src='https://picsum.photos/200' size='medium' as={Link} to='/workouttype'/>
-
-        </Container>
+                <div className="groups" >
+                    <Image style={{ paddingBottom: 20}} centered fluid bordered  src={require("../../images/weights.jpeg")} as={Link} to='/musclegroup'/>
+                </div>
+                <div className="types" >
+                    <Image style={{ paddingBottom: 20}} centered fluid bordered  src={require("../../images/yoga.jpeg")}  as={Link} to='/workouttype'/>
+                </div>
+            </Container>
+           
+            <h2 className="muscle">
+                <span className="primary">Muscle Group</span>
+            </h2>
+           
+        </div>
     )
 }
 

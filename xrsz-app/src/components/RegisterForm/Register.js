@@ -19,7 +19,7 @@ const Register = props => {
             props.history.push('/workout')
         }
 
-        if(error === 'User already exists'){
+        if(error === 'User already exist'){
             setAlert(error)
             clearErrors()
         };

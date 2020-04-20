@@ -14,7 +14,7 @@ const WorkoutState = props => {
         workout: [],
         current: null,
         error: null,
-        workoutOpen: false,
+        modalOpen: false,
 
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
@@ -49,7 +49,7 @@ const WorkoutState = props => {
             const res = await axios.get(`${endpoint}/workout/${workouts}`);
             console.log(res)
             
-
+            
             dispatch({
                 type: GET_ONE,
                 payload: res.data
@@ -82,6 +82,7 @@ const WorkoutState = props => {
             error: state.error,
             workoutOpen: state.workoutOpen,
             current: state.current,
+            modalOpen: state.modalOpen,
             getWorkouts,
             getOne,
             setCurrent,

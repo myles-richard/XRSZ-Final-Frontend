@@ -20,10 +20,9 @@ useEffect(() => {
 const core= [];
 const upperBody = [];
 const lowerBody = [];
-console.log(workout)
+
  
 for(let workouts of workout) {
-    console.log(workouts)
     if(workouts.type.includes('Core')) {
         core.push(workouts)
     } else if(workouts.type.includes('UpperBody')){
@@ -50,7 +49,7 @@ const panes = [
   },
 ]
     return (
-        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        <Tab menu={{ secondary: true, pointing: true, color: 'white' }} panes={panes} />
       )
 }
 

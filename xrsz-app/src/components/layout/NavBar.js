@@ -15,7 +15,7 @@ export const NavBar = ({ title }) => {
         logout();
     }
     const authLinks = (
-        <Menu pointing size="huge" >
+        <Menu inverted pointing size="huge" >
             <Menu.Item 
             name="XRSZ"
             >

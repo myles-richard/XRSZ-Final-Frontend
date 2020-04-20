@@ -18,18 +18,18 @@ useEffect(() => {
 
 
 const stability= [];
-const core = [];
-const lowerBody = [];
-console.log(workout)
+const mobility = [];
+const endurance = [];
+
  
 for(let workouts of workout) {
-    console.log(workouts)
-    if(workouts.goodFor.includes('stability')) {
+    
+    if(workouts.goodFor.includes('Stability')) {
         stability.push(workouts)
-    } else if(workouts.goodFor.includes('core')){
-        core.push(workouts)
-    } else if(workouts.goodFor.includes('LowerBody')){
-        lowerBody.push(workouts)
+    } else if(workouts.goodFor.includes('Mobility')){
+        mobility.push(workouts)
+    } else if(workouts.goodFor.includes('Endurance')){
+        endurance.push(workouts)
     }
 }
 
@@ -42,11 +42,11 @@ const panes = [
   },
   {
     menuItem: 'Endurance',
-    render: () => <Tab.Pane attached={false}><Workouts workouts={core} /></Tab.Pane>,
+    render: () => <Tab.Pane attached={false}><Workouts workouts={mobility} /></Tab.Pane>,
   },
   {
     menuItem: 'Mobility',
-    render: () => <Tab.Pane attached={false}><Workouts workouts={lowerBody} /></Tab.Pane>,
+    render: () => <Tab.Pane attached={false}><Workouts workouts={endurance} /></Tab.Pane>,
   },
 ]
     return (

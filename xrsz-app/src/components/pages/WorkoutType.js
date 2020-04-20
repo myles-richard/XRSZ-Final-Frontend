@@ -4,9 +4,11 @@ import TypeTabs from './tabs/TypeTabs';
 
 const workoutType = () => {
     return (
-        <div className="container">
-           <h1>workoutType</h1>
-           <TypeTabs />
+        <div className="musclegroupcontainer">
+            <div className="tabs">
+           
+            <TypeTabs />
+            </div>
         </div>
     )
 }

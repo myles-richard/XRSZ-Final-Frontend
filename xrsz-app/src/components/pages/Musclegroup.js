@@ -4,9 +4,11 @@ import './Musclegroup.css';
 
 const Musclegroup = () => {
     return (
-        <div className="container">
-           <h1>Musclegroup</h1>
-           <MuscleTabs />
+        <div className="musclegroupcontainer">
+            <div className="tabs">
+            <h1>Musclegroup</h1>
+            <MuscleTabs />
+            </div>
         </div>
     )
 }
