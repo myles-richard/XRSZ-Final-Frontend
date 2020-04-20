@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 const Profile = (props) => {
 
     const authContext = useContext(AuthContext);
-
+    
     //take methods out of authcontext
     const { update, user, setCurrent, deleteUser, current } = authContext;
 
