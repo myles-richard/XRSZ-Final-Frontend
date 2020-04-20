@@ -5,8 +5,24 @@ This project was made for people who have a hard time staying active during thes
 ### `Technologies Used`
 HTML, CSS, Semantic-UI-React, NodeJS, MonogoDB, React
 
+### `Unsolved Problems`
+- Save button on each workout to profile 
+- Randomizer button that pics workout for you 
+- Like workouts 
+
+### Dependencies 
+- axios
+- body parser 
+- cors 
+- dot env
+- mongoose 
+- express validator and jwt 
+- uuid
+- moment 
+- react-moment 
+
 ### `Wire Frames/User stories`
-![frames](images/wireframe1.jpg)
+![frames](src/images/wireframe1.jpg)
 ![frames](images/wireframe2.jpg)
 ![frames](images/wireframe3.jpg)
 ![frames](images/wireframe4.jpg)
@@ -14,7 +30,6 @@ HTML, CSS, Semantic-UI-React, NodeJS, MonogoDB, React
 
 ### `installation steps`
 
-### `Unsolved Problems`
-- Save button on each workout to profile 
-- Randomizer button that pics workout for you 
-- Like workouts 
+- Run npm install for dependencies 
+- npm start for front-end
+- run nodemon for backend 
