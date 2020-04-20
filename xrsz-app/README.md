@@ -33,3 +33,5 @@ HTML, CSS, Semantic-UI-React, NodeJS, MonogoDB, React
 - Run npm install for dependencies 
 - npm start for front-end
 - run nodemon for backend 
+
+#### By Myles Richard
