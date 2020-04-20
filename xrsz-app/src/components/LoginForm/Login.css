@@ -1,0 +1,16 @@
+.ui.container.grid {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.ui.fluid.button {
+    color: #003366;
+    background: white;
+    border: 1px solid #003366;
+}
