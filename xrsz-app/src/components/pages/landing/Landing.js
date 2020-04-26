@@ -1,20 +1,26 @@
 import React from 'react'
-import { Button, Container } from 'semantic-ui-react';
+import { Button, Container, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import './Landing.css';
+import './_landing.scss';
 
 const Landing = () => {
     return (
-        <div className="myDiv">
-            <Container className="textbox">
-                <div>
-                    <Button  fluid size='large' as={Link} to="/register">Register </Button>
+        <header className="header">
+            <div className="header_image-box">
+                Logo
+            </div>
+
+            <div className="header__textbox">
+                <h1 class="heading-primary">
+                    <span className="heading-primary--main">XRSZ</span>
+                </h1>
+                <div style={{paddingBottom: 10}}>
+                    <Button className=" button--white button--animated"  fluid size='large' as={Link} to="/register">Register </Button>
                 </div>
-                <div>
-                    <Button  fluid size='large' as={Link} to="/login">Login </Button>
-                </div>
-            </Container>
-        </div>
+                <Button className="button--white  button--animated"  fluid size='large' as={Link} to="/login">Login </Button>
+                
+            </div>
+        </header>
     )
 }
 

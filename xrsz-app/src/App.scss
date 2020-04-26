@@ -1,0 +1,28 @@
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+h1 {
+  color: #003366;
+}
+
+
+body {
+  font-family: 'Avenir';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+} */
+
+@import "./sass/abstract/variables";
+@import "./sass/base/base";
+@import "./sass/base/typography";
+@import "./sass/base/utilities";
+@import "./sass/base/animations";
+@import "./sass/button";
+
+@import "./components/pages/landing/landing";
+@import "./components/LoginForm/Login";

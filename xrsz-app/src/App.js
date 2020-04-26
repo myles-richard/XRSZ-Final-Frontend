@@ -7,7 +7,7 @@ import Landing from './components/pages/landing/Landing';
 import Musclegroup from './components/pages/musclegroup/Musclegroup';
 import WorkoutType from './components/pages/musclegroup/WorkoutType';
 import Alerts from './components/layout/Alerts';
-import './App.css';
+import './App.scss';
 import Register from './components/RegisterForm/Register';
 import Login from './components/LoginForm/Login';
 import PrivateRoute from './components/config/PrivateRoute';
