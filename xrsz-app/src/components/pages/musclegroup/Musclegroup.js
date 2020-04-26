@@ -1,5 +1,5 @@
 import React from 'react'
-import MuscleTabs from './tabs/MuscleTabs';
+import MuscleTabs from '../tabs/MuscleTabs';
 import './Musclegroup.css';
 
 const Musclegroup = () => {

@@ -5,9 +5,9 @@ import './Landing.css';
 
 const Landing = () => {
     return (
-        <div className="headers">
+        <div className="myDiv">
             <Container className="textbox">
-                <div style={{ paddingBottom: 10}}>
+                <div>
                     <Button  fluid size='large' as={Link} to="/register">Register </Button>
                 </div>
                 <div>

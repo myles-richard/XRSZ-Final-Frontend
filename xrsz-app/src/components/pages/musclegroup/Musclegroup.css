@@ -1,4 +1,4 @@
-.musclegroupcontainer {
+/* .musclegroupcontainer {
     
     background-image: url('../../images/barbells-on-gray-surface-669584.jpg');
     background-size: cover;
@@ -24,11 +24,11 @@
 .ui.card {
     background-color: rgb(255,255,255,0.7);
 }
-/* tabs */
+
 .ui.secondary.pointing.menu .active.item {
     background-color: transparent;
     box-shadow: none;
     border-color: #0063ca;
     font-weight: 700;
     color: rgba(255,255,255,.95);
-}
+} */

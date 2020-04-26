@@ -1,5 +1,5 @@
 import React from 'react'
-import TypeTabs from './tabs/TypeTabs';
+import TypeTabs from '../tabs/TypeTabs';
 
 
 const workoutType = () => {

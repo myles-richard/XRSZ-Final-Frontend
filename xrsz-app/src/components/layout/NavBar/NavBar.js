@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './NavBar.css';
-import AuthContext from '../../context/auth/authContext';
-import AlertContext from '../../context/alert/alertContext';
+import AuthContext from '../../../context/auth/authContext';
+import AlertContext from '../../../context/alert/alertContext';
 
 export const NavBar = ({ title }) => {
     const authContext = useContext(AuthContext);
