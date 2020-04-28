@@ -201,12 +201,12 @@ body {
 }
 
 .ui.button--blue {
-  background-color: #003366;
+  background-color: #0063ca;
   color: #fff;
 }
 
 .ui.button--blue ::after {
-  background-color: #003366;
+  background-color: #0063ca;
 }
 
 .ui.button::after {
@@ -230,7 +230,7 @@ body {
           animation-fill-mode: backwards;
 }
 
-.header {
+.headers {
   height: 95vh;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 51, 102, 0.8)), to(rgba(0, 99, 202, 0.8))), url(../../../images/weights.jpeg);
   background-image: linear-gradient(to right bottom, rgba(0, 51, 102, 0.8), rgba(0, 99, 202, 0.8)), url(../../../images/weights.jpeg);
@@ -238,7 +238,7 @@ body {
   background-position: top;
 }
 
-.header__textbox {
+.headers__textbox {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -259,6 +259,85 @@ body {
 
 .ui.form {
   height: 95vh;
-  width: 700px;
+  width: 70%;
+  margin: auto 0;
+}
+
+.button.ui.fluid.button.button--blue {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  font-size: 1.6rem;
+}
+
+.ui.input {
+  display: inline-block;
+  font-size: 1.6rem;
+}
+
+.ui.form .field > label {
+  font-size: 1.6rem;
+}
+
+.profiles {
+  height: 95vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(0, 51, 102, 0.8)), to(rgba(0, 99, 202, 0.8))), url(../../../images/dumbells.jpg);
+  background-image: linear-gradient(to right bottom, rgba(0, 51, 102, 0.8), rgba(0, 99, 202, 0.8)), url(../../../images/dumbells.jpg);
+  background-size: cover;
+  margin: auto 0;
+}
+
+.profiles__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.story {
+  width: 55%;
+  margin: 0 auto;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1);
+          box-shadow: rgba(0, 0, 0, 0.1);
+  font-size: 1.6rem;
+  position: relative;
+}
+
+.story_caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.7rem;
+  text-align: center;
+}
+
+.story:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.story:hover::after {
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+          transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.story:active {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 /*# sourceMappingURL=App.css.map */

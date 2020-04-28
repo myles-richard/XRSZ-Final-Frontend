@@ -39,11 +39,11 @@
     }
 
     &--blue {
-        background-color: $main-color;
+        background-color: $main-light;
         color: $color-white;
 
         ::after {
-            background-color: $main-color;
+            background-color: $main-light;
         }
     }
 

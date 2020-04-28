@@ -5,13 +5,13 @@ import './_landing.scss';
 
 const Landing = () => {
     return (
-        <header className="header">
-            <div className="header_image-box">
+        <header className="headers">
+            <div className="headers_image-box">
                 Logo
             </div>
 
-            <div className="header__textbox">
-                <h1 class="heading-primary">
+            <div className="headers__textbox">
+                <h1 className="heading-primary">
                     <span className="heading-primary--main">XRSZ</span>
                 </h1>
                 <div style={{paddingBottom: 10}}>

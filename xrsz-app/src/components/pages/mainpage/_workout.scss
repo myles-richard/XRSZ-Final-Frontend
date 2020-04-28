@@ -1,0 +1,33 @@
+.story {
+    width: 55%;
+    margin: 0 auto;
+    box-shadow: rgba($color-black, .1);
+    font-size: $default-font-size;
+    position: relative;
+
+    &_caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 2.7rem;
+        text-align: center;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
+}

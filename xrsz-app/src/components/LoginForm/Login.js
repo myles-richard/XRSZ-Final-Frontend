@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Button } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
@@ -58,15 +59,15 @@ const onClick = () => {
 
 return (
     <div className="login-container">
-        <div >
-            <h2 class="heading-secondary u-center-text">
-                XRSZ
-            </h2>
-        </div>
+        
             <div className="login-container login-container__form">
                     
                     <Form onSubmit={handleSubmit}>
-                        <p>Email</p>
+                        <div >
+                            <h2 className="heading-secondary u-center-text">
+                                Login
+                            </h2>
+                        </div>
                         <Form.Input required
                             fluid
                             label='Email'
@@ -90,7 +91,7 @@ return (
                         <Button
                             fluid
                             className="button--blue"
-                            size='medium'
+                            size='large'
                             type="submit"
                         >Login</Button>
                         </div>
@@ -101,15 +102,7 @@ return (
                             onClick={onClick}
                         >Back</Button>
                     </Form>
-                
-                    <div style={{paddingBottom: 10}}>
-                        <Button
-                            fluid
-                            className="button--blue"
-                            size='medium'
-                            type="submit"
-                        >Login</Button>
-                        </div>
+                    
             </div> 
         </div>                                 
     
