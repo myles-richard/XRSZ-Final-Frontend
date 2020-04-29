@@ -14,7 +14,7 @@ const WorkoutState = props => {
         workout: [],
         current: null,
         error: null,
-        modalOpen: false,
+        workouts: null,
 
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
@@ -82,7 +82,7 @@ const WorkoutState = props => {
             error: state.error,
             workoutOpen: state.workoutOpen,
             current: state.current,
-            modalOpen: state.modalOpen,
+            workouts: state.workouts,
             getWorkouts,
             getOne,
             setCurrent,
