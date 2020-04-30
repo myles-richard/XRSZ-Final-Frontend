@@ -1,3 +1,6 @@
+.workoutpage {
+    padding: 3rem 0;
+}
 .story {
     width: 55%;
     margin: 0 auto;
@@ -31,4 +34,10 @@
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
     }
+}
+
+hr {
+    background-color: $color-white;
+    height: 3rem;
+    border: none;
 }

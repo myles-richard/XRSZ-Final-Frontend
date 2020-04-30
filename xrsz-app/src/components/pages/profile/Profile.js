@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Grid, Modal,Button, Form, Container } from 'semantic-ui-react';
+import { Card, Grid, Modal,Button, Form, Container, Image } from 'semantic-ui-react';
 import './_profile.scss';
 // import '../../../sass/base/_typography.scss';
 import AuthContext from '../../../context/auth/authContext';
@@ -54,10 +54,15 @@ const Profile = (props) => {
     
 
     return (
+        <>
         <div className="profiles">
+            <div class="bg-image">
+                <Image class="bg-image__content" 
+                    src={require('../../../images/barbells-on-gray-surface-669584.jpg')} />
+            </div>
             <div className="profiles__card">
             
-                                <Card >
+                                <Card className="profile" >
                                     <Card.Content>
                                         <Card.Header className="username">{user.name}</Card.Header>
                                         <Card.Meta>Email: {user.email}</Card.Meta>
@@ -68,7 +73,7 @@ const Profile = (props) => {
                                     </Card.Content>
                     
 
-                                    <Modal closeIcon dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
+                                    <Modal closeIcon centered basic size='small' dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
                                         <Modal.Header>Edit Profile Info</Modal.Header>
                                         <Modal.Content>
                                             <Form onSubmit={handleSubmit}>
@@ -112,7 +117,14 @@ const Profile = (props) => {
                                 
                     
             </div>
+            
         </div>
+        <div class="u-left-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Exercises
+            </h2>
+        </div>
+        </>
     )
 }
 

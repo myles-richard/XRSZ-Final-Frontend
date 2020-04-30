@@ -26,17 +26,17 @@ export const Workout = () => {
                         <h2 className="story_caption">Musclegroup</h2>
                     </div>
                 </div>
-
+                <hr  />
                 <div className="story">
                     <div className="story__shape">
-                        <Segment>
+                        {/* <Segment> */}
                     <Image  
                     src={require('../../../images/exercisetypes.jpeg')}
                     className="story__img"
                     as={Link}
                     to='/workouttype'/>
                         <h2 className="story_caption">Exercise Types</h2>
-                        </Segment>
+                        {/* </Segment> */}
                     </div>
                 </div>
             </div>

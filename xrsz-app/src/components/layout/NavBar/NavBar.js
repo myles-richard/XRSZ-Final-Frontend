@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import './NavBar.css';
+import './_NavBar.scss';
 import AuthContext from '../../../context/auth/authContext';
 import AlertContext from '../../../context/alert/alertContext';
 
@@ -18,7 +18,7 @@ export const NavBar = ({ title }) => {
         setAlert('Log out Successful')
     }
     const authLinks = (
-        <Menu inverted pointing size="huge" >
+        <Menu pointing size="huge" >
             <Menu.Item 
             name="XRSZ"
             >
@@ -37,7 +37,7 @@ export const NavBar = ({ title }) => {
     )
 
     const guestLinks = (
-        <Menu size="huge" inverted >
+        <Menu size="huge" >
             
             <Menu.Item 
             name="XRSZ">

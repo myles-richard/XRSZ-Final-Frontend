@@ -9,39 +9,37 @@ export const WorkoutItem = ({ workout }) => {
     const workoutContext = useContext(WorkoutContext);
 
      //take methods out of authcontext
-     const { current, setCurrent } = workoutContext;
+     const { setCurrent } = workoutContext;
 
     const { name, type, } = workout;
 
-    const handleClick = () => {
-        return 
-    }
     
     return (
-        <>
+        <div className="workout__list">
         <Link to={{
             pathname: "/selected",
             state: {
                 current: workout
             }}}>
             <Card raised style={{ padding: 10, margin: 10 }} onClick={() => setCurrent()} >
-                    <CommentGroup>
+                    <Comment.Group size="huge">
                         <Comment>
                             <Comment.Avatar src="https://picsum.photos/200"/>
                             <Comment.Content>
-                                <Comment.Author>
-                                    {name} <Icon floated="right" name='plus'/>
-                                    
-                                </Comment.Author>
+                                <Card.Header>{name} </Card.Header>
+                                {/* <Comment.Author as='h3'>
+                                     
+                                    <Icon floated="right" name='plus'/>
+                                </Comment.Author> */}
                                 <div>
-                                    <Comment.Metadata>{type}</Comment.Metadata>
+                                    <Card.Meta>{type}</Card.Meta>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <Comment.Metadata>Save</Comment.Metadata>
-                                </div>
+                                </div> */}
                             </Comment.Content>
                         </Comment>
-                    </CommentGroup>
+                    </Comment.Group>
                 </Card>
             {/* <Modal closeIcon basic image trigger={ }>
                 <h2 style={{ textAlign: 'center'}}>{workout.name}</h2>
@@ -104,7 +102,7 @@ export const WorkoutItem = ({ workout }) => {
                 </Modal.Content> 
             </Modal> */}
             </Link>
-        </>
+        </div>
         
     )
 };

@@ -1,15 +1,35 @@
+
 .profiles {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(0, 51, 102, 0.8),
-        rgba(0, 99, 202, 0.8)),
-        url(../../../images/dumbells.jpg);
-    background-size: cover;
+    // width: 75%;
     margin: auto 0;
+    position: relative;
+    height: 50vh;
+    // background-image: linear-gradient(
+    //     to right bottom,
+    //     rgba(0, 51, 102, 0.8),
+    //     rgba(0, 99, 202, 0.8)),
+    //     url(../../../images/dumbells.jpg);
+    // background-size: cover;
+    
+    
 
     &__card {
         display: flex;
         justify-content: center;
+        
+        
+        
     }
+
+    
 }
+
+.ui.card.profile {
+    box-shadow: 0 3rem 6rem rgba(0,0,0, .1);
+    background-color: transparent;
+    width: 290px;
+    
+}
+
+
+

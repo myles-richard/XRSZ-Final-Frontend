@@ -29,13 +29,15 @@ const Musclegroup = () => {
     
 
     return (
-        <div className="musclegroupcontainer">
-            <div className="tabs">
-            <h1>Musclegroup</h1>
-            
-            <MuscleTabs />
+        <div>
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Musclegroup
+                </h2>
             </div>
-           
+            <div className="tabs">
+                <MuscleTabs />
+            </div>
         </div>
     )
 }

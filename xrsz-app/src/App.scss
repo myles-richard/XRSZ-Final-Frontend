@@ -24,7 +24,12 @@ body {
 @import "./sass/base/animations";
 @import "./sass/button";
 
+@import "./components/layout/NavBar/NavBar";
 @import "./components/pages/landing/landing";
 @import "./components/LoginForm/Login";
 @import "./components/pages/profile/profile";
 @import "./components/pages/mainpage/workout";
+@import "./components/pages/tabs/tabs";
+@import "./components/workouts/workoutItem";
+@import "./components/pages/selectedWorkout/selectedWorkout";
+@import "./components/pages/profile/bg-image";
