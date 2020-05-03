@@ -1,15 +1,11 @@
 import React from 'react'
-import { Button, Container, Image } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './_landing.scss';
 
 const Landing = () => {
     return (
         <header className="headers">
-            <div className="headers_image-box">
-                Logo
-            </div>
-
             <div className="headers__textbox">
                 <h1 className="heading-primary">
                     <span className="heading-primary--main">XRSZ</span>

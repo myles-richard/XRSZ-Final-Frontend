@@ -12,7 +12,14 @@ html {
     font-size: 62.5%;
 }
 
+#root {
+    // position: relative;
+    // min-height: 100vh;
+    // overflow: hidden;
+}
+
 /* all child element will get these */
 body {
     box-sizing: border-box;
+    
 }

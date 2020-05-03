@@ -30,15 +30,20 @@
     height: 15rem;
     
     
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    display: flex;
+    // -webkit-shape-outside: circle(50% at 50% 50%);
+    // shape-outside: circle(50% at 50% 50%);
+    // -webkit-clip-path: circle(50% at 50% 50%);
+    // clip-path: circle(50% at 50% 50%);
+    // display: flex;
     
     
     
 
+}
+
+#text {
+    display: flex;
+    align-content: center;
 }
 
 .btn-txt {
@@ -50,6 +55,7 @@
 
 .middle.aligned.content {
     text-align: center;
+    padding: 15px 50px 0 0;
 }
 
 .descriptions {
@@ -60,3 +66,4 @@
 .ui.items>.item>.content {
     padding-top: 1.5rem;
 }
+

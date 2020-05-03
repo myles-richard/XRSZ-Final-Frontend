@@ -3,13 +3,14 @@
     // width: 75%;
     margin: auto 0;
     position: relative;
-    height: 50vh;
-    // background-image: linear-gradient(
-    //     to right bottom,
-    //     rgba(0, 51, 102, 0.8),
-    //     rgba(0, 99, 202, 0.8)),
-    //     url(../../../images/dumbells.jpg);
-    // background-size: cover;
+    height: 100vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(26, 26, 26, 0.8)),
+        url(../../../images/barbells-on-gray-surface-669584.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     
     
 
@@ -29,6 +30,10 @@
     background-color: transparent;
     width: 290px;
     
+}
+
+.u-left-text.u-margin-bottom-big {
+    padding-top: 6rem;
 }
 
 

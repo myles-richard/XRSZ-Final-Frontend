@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import {  Image, Segment } from 'semantic-ui-react';
+import {  Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../../context/auth/authContext';
 
-import './Workout.css'
+import './_workout.scss'
 
 export const Workout = () => {
     const authContext = useContext(AuthContext);
@@ -12,12 +12,13 @@ export const Workout = () => {
         authContext.getUser();
         //es-lint-disable-next-line
     }, [authContext])
-    const src = '../../../images/dumbells.jpg';
+
     return (
         <div className="workoutpage">
-            <div className="groups">
+            {/* <div className="img-box"> */}
                 <div className="story">
                     <div className="story__shape">
+                        
                     <Image  
                         src={require('../../../images/musclegroups.jpeg')}
                         className="story__img"
@@ -29,17 +30,15 @@ export const Workout = () => {
                 <hr  />
                 <div className="story">
                     <div className="story__shape">
-                        {/* <Segment> */}
                     <Image  
                     src={require('../../../images/exercisetypes.jpeg')}
                     className="story__img"
                     as={Link}
                     to='/workouttype'/>
                         <h2 className="story_caption">Exercise Types</h2>
-                        {/* </Segment> */}
                     </div>
-                </div>
-            </div>
+                </div> 
+            {/* </div> */}
         </div>
     )
 }

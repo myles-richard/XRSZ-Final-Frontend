@@ -4,9 +4,9 @@ import TypeTabs from '../tabs/TypeTabs';
 
 const workoutType = () => {
     return (
-        <div>
-            <div class="u-center-text u-margin-bottom-big">
-                <h2 class="heading-secondary">
+        <div className="workout-tabs">
+            <div className="u-center-text u-margin-bottom-big">
+                <h2 className="heading-secondary">
                     Exercise Type
                 </h2>
             </div>

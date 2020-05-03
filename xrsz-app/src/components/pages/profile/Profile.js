@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Grid, Modal,Button, Form, Container, Image } from 'semantic-ui-react';
+import { Card, Modal,Button, Form } from 'semantic-ui-react';
 import './_profile.scss';
-// import '../../../sass/base/_typography.scss';
 import AuthContext from '../../../context/auth/authContext';
 import Moment from 'react-moment';
 
@@ -42,7 +41,6 @@ const Profile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('hi')
         update(newUser)
     }
 
@@ -54,12 +52,8 @@ const Profile = (props) => {
     
 
     return (
-        <>
+        
         <div className="profiles">
-            <div class="bg-image">
-                <Image class="bg-image__content" 
-                    src={require('../../../images/barbells-on-gray-surface-669584.jpg')} />
-            </div>
             <div className="profiles__card">
             
                                 <Card className="profile" >
@@ -114,17 +108,17 @@ const Profile = (props) => {
                                 
                         
                     
-                                
+                                      
                     
             </div>
-            
+            <div class="u-left-text u-margin-bottom-big">
+                <h3 class="heading-secondary">
+                    Saved Exercises
+                </h3>
+            </div>
         </div>
-        <div class="u-left-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Exercises
-            </h2>
-        </div>
-        </>
+        
+    
     )
 }
 

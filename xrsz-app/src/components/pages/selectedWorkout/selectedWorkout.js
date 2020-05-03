@@ -13,17 +13,13 @@ const selectedWorkout = (props) => {
         <>
         
             <header className="selected">
-                <div className="selected_image-box">
-                    Logo
-                </div>
-
                 <div className="selected__textbox">
                     <h1 className="heading-primary">
                         <span className="heading-primary--main">{workouts.current.name}</span>
                     </h1>
                     <figure className="selected__shape">
                         <Button className=" button--white button--animated save-button"  fluid size='large' as={Link} to="/register">
-                            <span className="btn-txt">Register</span>
+                            save
                         </Button>
                     </figure>
                     <p className="descriptions">
@@ -31,38 +27,38 @@ const selectedWorkout = (props) => {
                     </p>
                 </div>
             </header>
-            {/* <Container> */}
             <main>
-            <Item.Group divided>
-                <Item>
-                    <Item.Content verticalAlign='middle'>
-                        <Item.Header>Good For</Item.Header>
-                        <Item.Meta>
-                        <span className='type'>{workouts.current.goodFor}</span>
-                        </Item.Meta>
-                    </Item.Content>
-                </Item>
-                <Item>
-                    <Item.Content verticalAlign='middle'>
-                        <Item.Header>{workouts.current.time}</Item.Header>
-                        <Item.Meta>
-                        <span className='type'>Avg. Minutes</span>
-                        </Item.Meta>
-                    </Item.Content>
-                </Item>
-            </Item.Group>
-            <div class="u-left-text u-margin-bottom-big">
-                <h2 class="heading-secondary">
-                    Exercises
-                </h2>
-            </div>
-            
-            {workouts.current.exercise.map(exercises => 
-            <Exercises key={exercises._id} exercise={exercises} />
-            )}
-            
+                <Item.Group divided>
+                    <Item>
+                        <Item.Content verticalAlign='middle'>
+                            <Item.Header>Good For</Item.Header>
+                            <Item.Meta>
+                            <span className='type'>{workouts.current.goodFor}</span>
+                            </Item.Meta>
+                        </Item.Content>
+                    </Item>
+                    <Item>
+                        <Item.Content verticalAlign='middle'>
+                            <Item.Header>{workouts.current.time}</Item.Header>
+                            <Item.Meta>
+                            <span className='type'>Avg. Minutes</span>
+                            </Item.Meta>
+                        </Item.Content>
+                    </Item>
+                </Item.Group>
+                <Container>
+                <div class="u-left-text u-margin-bottom-big">
+                    <h2  class="heading-secondary">
+                        Exercises
+                    </h2>
+                </div>
+                <Item.Group divided>
+                    {workouts.current.exercise.map(exercises => 
+                    <Exercises key={exercises._id} exercise={exercises} />
+                    )}
+                </Item.Group>
+                </Container>
             </main>
-            {/* </Container> */}
         </>
         
     )
