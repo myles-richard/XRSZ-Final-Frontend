@@ -7,6 +7,7 @@ import {
     GET_ONE,
     SET_CURRENT,
     CLEAR_CURRENT,
+    SAVE_WORKOUT
 } from '../types';
 // initial state and actions to perform 
 const WorkoutState = props => {
@@ -64,6 +65,27 @@ const WorkoutState = props => {
         }
     }
 
+       // Save Workout
+       const saveWorkout = async (user, workouts) => {
+           try {
+               const res = await axios.put(`${endpoint}/workout/${user._id}`, workouts, {
+                   headers: {
+                       "Content-Type": "application/json",
+                   }
+
+               });
+               console.log(res)
+               console.log(workouts)
+               dispatch({ 
+                   type: SAVE_WORKOUT, 
+                   payload: res.data 
+                });
+           } catch (err) {
+               console.log(err)
+           }
+        
+    }
+
         // Set Current 
         const setCurrent = workouts => {
             dispatch({ type: SET_CURRENT, payload: workouts})
@@ -86,7 +108,8 @@ const WorkoutState = props => {
             getWorkouts,
             getOne,
             setCurrent,
-            clearCurrent
+            clearCurrent,
+            saveWorkout
         }}>
             { props.children }
         </WorkoutContext.Provider>

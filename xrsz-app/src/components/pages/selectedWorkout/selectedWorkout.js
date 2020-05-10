@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Item, Container } from 'semantic-ui-react';
 import { Exercises } from './Exercises';
+import AuthContext from '../../../context/auth/authContext';
+import WorkoutContext from '../../../context/workout/workoutContext';
 
-const selectedWorkout = (props) => {
+const SelectedWorkout = (props) => {
 
-    console.log('about', props.location.state)
+    const authContext = useContext(AuthContext);
+    const workoutContext = useContext(WorkoutContext);
+
+    //take methods out of authcontext
+    const { user } = authContext;
+    const { saveWorkout } = workoutContext;
+
+    
+    // console.log('about', props.location.state)
     const workouts = props.location.state;
-    console.log(workouts.current.exercise)
+    // console.log(workouts.current.exercise)
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        console.log(user);
+        console.log(workouts);
+        // console.log(current);
+        saveWorkout(user, workouts);
+    }
     
     return (
         <>
@@ -18,7 +36,7 @@ const selectedWorkout = (props) => {
                         <span className="heading-primary--main">{workouts.current.name}</span>
                     </h1>
                     <figure className="selected__shape">
-                        <Button className=" button--white button--animated save-button"  fluid size='large' as={Link} to="/register">
+                        <Button className=" button--white button--animated save-button"  fluid size='large' onClick={handleSave}>
                             save
                         </Button>
                     </figure>
@@ -47,8 +65,8 @@ const selectedWorkout = (props) => {
                     </Item>
                 </Item.Group>
                 <Container>
-                <div class="u-left-text u-margin-bottom-big">
-                    <h2  class="heading-secondary">
+                <div className="u-left-text u-margin-bottom-big">
+                    <h2  className="heading-secondary">
                         Exercises
                     </h2>
                 </div>
@@ -64,4 +82,4 @@ const selectedWorkout = (props) => {
     )
 }
 
-export default selectedWorkout
+export default SelectedWorkout

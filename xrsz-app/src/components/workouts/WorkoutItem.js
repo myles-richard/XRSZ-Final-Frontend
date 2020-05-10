@@ -22,7 +22,7 @@ export const WorkoutItem = ({ workout }) => {
                 current: workout
             }}}>
             <Card raised style={{ padding: 10, margin: 10 }} onClick={() => setCurrent()} >
-                    <Comment.Group size="medium">
+                    <Comment.Group size="big">
                         <Comment>
                             <Comment.Avatar src="https://picsum.photos/200"/>
                             <Comment.Content>

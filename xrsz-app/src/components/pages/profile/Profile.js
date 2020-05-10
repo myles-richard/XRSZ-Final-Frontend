@@ -3,6 +3,7 @@ import { Card, Modal,Button, Form } from 'semantic-ui-react';
 import './_profile.scss';
 import AuthContext from '../../../context/auth/authContext';
 import Moment from 'react-moment';
+import Workouts from '../../workouts/Workouts';
 
 const Profile = (props) => {
 
@@ -18,7 +19,7 @@ const Profile = (props) => {
         goals: ''
         })
 
-    const { goals, email, name, _id } = user;
+    const { goals, email, name, _id, savedWorkouts } = user;
 
     useEffect(() => {
         if(current !== null) {
@@ -115,6 +116,7 @@ const Profile = (props) => {
                 <h3 class="heading-secondary">
                     Saved Exercises
                 </h3>
+                <Workouts workouts={savedWorkouts}/>
             </div>
         </div>
         
