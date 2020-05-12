@@ -24,11 +24,9 @@ const AuthState = props => {
     const initialState = {
         //store token in local storage
         token: localStorage.getItem('token'),
-        //tells us if we're logged in or not.
         isAuthenticated: null,
         user: null,
         error: null,
-        activeItem: '',
         current: null
 
     };
@@ -39,8 +37,10 @@ const AuthState = props => {
     //  User
     const getUser = async () => {
         //load token into global headers
-        if(localStorage.token) { //if local storage has a token
-            setAuthHeader(localStorage.token); //pass in the token
+        //if local storage has a token
+        //pass in the token
+        if(localStorage.token) { 
+            setAuthHeader(localStorage.token);
         }
         try {
             const res = await axios.get(`${endpoint}/auth`);
@@ -55,6 +55,7 @@ const AuthState = props => {
             });
         }
     }
+
     // Register User 
     const signUp = async newUser => {
 
@@ -69,7 +70,7 @@ const AuthState = props => {
                 type: REGISTER_SUCCESS,
                 payload: res.data
             });
-            //load the user in
+            
             getUser();
         } catch (err) {
             console.log(err)
@@ -79,8 +80,8 @@ const AuthState = props => {
             })
         }
       };
-    // Login User 
 
+    // Login User 
     const login = async user => {
 
         try{
@@ -94,7 +95,7 @@ const AuthState = props => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
-            //load the user in
+        //load the user in
             getUser();
         } catch (err) {
             dispatch({
@@ -179,7 +180,6 @@ const AuthState = props => {
             isAuthenticated: state.isAuthenticated,
             user: state.user,
             error: state.error,
-            activeItem: state.activeItem,
             current: state.current,
             signUp,
             getUser,

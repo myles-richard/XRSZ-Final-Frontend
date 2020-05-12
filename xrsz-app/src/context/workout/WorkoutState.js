@@ -5,11 +5,11 @@ import workoutReducer from './workoutReducer';
 import axios from 'axios';
 import { 
     GET_WORKOUTS,
-    GET_ONE,
     SET_CURRENT,
     CLEAR_CURRENT,
     SAVE_WORKOUT,
-    DELSAVE_WORKOUT
+    DELSAVE_WORKOUT,
+    WORKOUT_ERROR
 } from '../types';
 // initial state and actions to perform 
 const WorkoutState = props => {
@@ -32,44 +32,21 @@ const WorkoutState = props => {
     const getWorkouts = async () => {
         try {
             const res = await axios.get(`${endpoint}/workout`);
-            
-            
-
             dispatch({
                 type: GET_WORKOUTS,
                 payload: res.data
             });
 
         } catch (err) {
-            console.log(err)
-            // dispatch({
-            //     type: WORKOUT_ERROR,
-            //     payload: err.response.msg
-            // });
-        }
-    }
-
-    // Get One Workout
-    const getOne = async workouts => {
-        try {
-            const res = await axios.get(`${endpoint}/workout/${workouts}`);
-            console.log(res)
-            
-            
             dispatch({
-                type: GET_ONE,
-                payload: res.data
+                type: WORKOUT_ERROR,
+                payload: err.response.msg
             });
-        } catch (err) {
-            console.log(err)
-            // dispatch({
-            //     type: WORKOUT_ERROR,
-            //     payload: err.response.msg
-            // });
         }
     }
+   
 
-       // Save Workout
+    // Save Workout
        const saveWorkout = async (user, workouts) => {
            try {
                const res = await axios.put(`${endpoint}/workout/${user._id}`, workouts, {
@@ -92,7 +69,7 @@ const WorkoutState = props => {
         
     }
 
-       // Delete save Workout
+    // Delete save Workout
        const delSaveWorkout = async (user, workouts) => {
            try {
                const res = await axios.put(`${endpoint}/workout/unsave/${user._id}`, workouts, {
@@ -114,12 +91,12 @@ const WorkoutState = props => {
         
     }
 
-        // Set Current 
+    // Set Current 
         const setCurrent = workouts => {
             dispatch({ type: SET_CURRENT, payload: workouts})
         }
     
-        // Clear Current 
+    // Clear Current 
         const clearCurrent = () => {
             dispatch({ type: CLEAR_CURRENT })
         }
@@ -135,7 +112,6 @@ const WorkoutState = props => {
             workouts: state.workouts,
             isSaved: state.isSaved,
             getWorkouts,
-            getOne,
             setCurrent,
             clearCurrent,
             saveWorkout,

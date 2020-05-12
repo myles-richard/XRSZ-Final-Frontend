@@ -17,16 +17,12 @@ const SelectedWorkout = (props) => {
 
     const handleSave = (e) => {
         e.preventDefault();
-        console.log(user);
-        console.log(workouts);
-        // console.log(current);
         saveWorkout(user, workouts);
         
     }
     
     const handleDel = (e) => {
         e.preventDefault();
-        console.log('handel pressed');
         delSaveWorkout(user, workouts);
     }
 
@@ -48,19 +44,13 @@ const SelectedWorkout = (props) => {
     
     return (
         <>
-        
             <header className="selected">
                 <div className="selected__textbox">
                     <h1 className="heading-primary">
                         <span className="heading-primary--main">{workouts.current.name}</span>
                     </h1>
-                    {isSaved ? delBtn : saveBtn  }
-                    {/* <figure className="selected__shape">
-                        <Button className=" button--white button--animated save-button"  fluid size='large' onClick={handleSave}>
-                            save
-                        </Button>
-                        <Button onClick={handleDel}>Delete</Button>
-                    </figure> */}
+                    {/* Save and Delete Button */}
+                    { isSaved ? delBtn : saveBtn  }
                     <p className="descriptions">
                         {workouts.current.description}
                     </p>
