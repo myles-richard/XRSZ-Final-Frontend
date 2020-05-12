@@ -10,7 +10,7 @@ const Profile = (props) => {
     const authContext = useContext(AuthContext);
     
     //take methods out of authcontext
-    const { update, user, setCurrent, deleteUser, current, getUser } = authContext;
+    const { update, user, setCurrent, deleteUser, current } = authContext;
 
      //add component level state
      const [newUser, setUser] = useState({
@@ -22,7 +22,6 @@ const Profile = (props) => {
     const { goals, email, name, _id, savedWorkouts } = user;
 
     useEffect(() => {
-        getUser();
         if(current !== null) {
             setUser(current)
         } else {
@@ -37,7 +36,6 @@ const Profile = (props) => {
 
     //handle Change
     const handleChange = (e) => {
-        console.log('hi');
         setUser({...newUser, [e.target.name]: e.target.value });
     }
 
@@ -57,67 +55,61 @@ const Profile = (props) => {
         
         <div className="profiles">
             <div className="profiles__card">
-            
-                                <Card className="profile" >
-                                    <Card.Content>
-                                        <Card.Header className="username">{user.name}</Card.Header>
-                                        <Card.Meta>Email: {user.email}</Card.Meta>
-                                        <Card.Meta>Joined: <Moment format='MM/DD/YYYY'>{user.date}</Moment></Card.Meta>
-                                        <Card.Description>
-                                        Goals: {user.goals}
-                                        </Card.Description>
-                                    </Card.Content>
+                {/* User Card */}
+                <Card className="profile" >
+                    <Card.Content>
+                        <Card.Header className="username">{user.name}</Card.Header>
+                        <Card.Meta>Email: {user.email}</Card.Meta>
+                        <Card.Meta>Joined: <Moment format='MM/DD/YYYY'>{user.date}</Moment></Card.Meta>
+                        <Card.Description>
+                        Goals: {user.goals}
+                        </Card.Description>
+                    </Card.Content>
                     
-
-                                    <Modal closeIcon centered basic size='small' dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
-                                        <Modal.Header>Edit Profile Info</Modal.Header>
-                                        <Modal.Content>
-                                            <Form onSubmit={handleSubmit}>
-                                            <Form.Input 
-                                                fluid
-                                                label='name'
-                                                id='form-input-name'
-                                                name='name'
-                                                value={newUser.name}
-                                                onChange={handleChange}
-                                            />
-                                            <Form.Input 
-                                                fluid
-                                                label='Email'
-                                                id='form-input-email'
-                                                name='email'
-                                                value={newUser.email}
-                                                onChange={handleChange}
-                                            />
-                                            <Form.Input 
-                                                fluid
-                                                label='goals'
-                                                id='form-input-goals'
-                                                name='goals'
-                                                value={newUser.goals}
-                                                onChange={handleChange}
-                                            />
-                                            <Form.Button
-                                                fluid
-                                                type="submit"
-                                                
-                                            >Update</Form.Button>
-                                            </Form>
-                                        </Modal.Content>
-                                    </Modal>
-                                    <Button className="button--blue" onClick={onDelete} >Delete Profile</Button>
-                                </Card>
+                    {/* Edit Modal  */}
+                    <Modal closeIcon centered basic size='small' dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
+                        <Modal.Header>Edit Profile Info</Modal.Header>
+                        <Modal.Content>
+                            <Form onSubmit={handleSubmit}>
+                            <Form.Input 
+                                fluid
+                                label='name'
+                                id='form-input-name'
+                                name='name'
+                                value={newUser.name}
+                                onChange={handleChange}
+                            />
+                            <Form.Input 
+                                fluid
+                                label='Email'
+                                id='form-input-email'
+                                name='email'
+                                value={newUser.email}
+                                onChange={handleChange}
+                            />
+                            <Form.Input 
+                                fluid
+                                label='goals'
+                                id='form-input-goals'
+                                name='goals'
+                                value={newUser.goals}
+                                onChange={handleChange}
+                            />
+                            <Form.Button
+                                fluid
+                                type="submit"
                                 
-                        
-                    
-                                      
-                    
+                            >Update</Form.Button>
+                            </Form>
+                        </Modal.Content>
+                    </Modal>
+                    <Button className="button--blue" onClick={onDelete} >Delete Profile</Button>
+                </Card>    
             </div>
             
+            {/* saved workout tab */}
             <div className="saved-workouts" style={{ marginTop: 20 }}>
                 <Card className='saved-card' as={Link} to="/savedworkouts">
-                    {/* <Grid centered> */}
-                        {/* <Grid.Column floated='left' width={5} > */}
                     <Card.Content>
                             <Card.Header className="card-header">
                                 <span className='title'>Saved workouts collection</span>
