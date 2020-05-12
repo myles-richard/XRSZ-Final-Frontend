@@ -1,22 +1,4 @@
 
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-}
-h1 {
-  color: #003366;
-}
-
-
-body {
-  font-family: 'Avenir';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-} */
-
 @import "./sass/abstract/variables";
 @import "./sass/base/base";
 @import "./sass/base/typography";
@@ -30,6 +12,7 @@ body {
 @import "./components/pages/profile/profile";
 @import "./components/pages/mainpage/workout";
 @import "./components/pages/tabs/tabs";
+@import "./components/pages/savedworkouts/savedworkout";
 @import "./components/workouts/workoutItem";
 @import "./components/pages/selectedWorkout/selectedWorkout";
 @import "./components/pages/profile/bg-image";
