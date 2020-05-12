@@ -1,0 +1,35 @@
+@keyframes moveInLeft {
+    /* the beginning */
+    0% {
+        opacity: 0;
+        /* want to animate the x position and for it to be onn left at beginning  */
+        transform: translateX(-10rem);
+
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+    /* the end of animation  */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    /* the beginning */
+    0% {
+        opacity: 0;
+        /* want to animate the x position and for it to be onn left at beginning  */
+        transform: translateY(3rem);
+
+    }
+
+    
+    /* the end of animation  */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

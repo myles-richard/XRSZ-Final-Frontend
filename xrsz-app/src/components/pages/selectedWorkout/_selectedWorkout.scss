@@ -1,0 +1,78 @@
+.selected {
+    height: 80vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(0, 51, 102, 0.8),
+        rgba(0, 99, 202, 0.8)),
+        url(../../../images/weights.jpeg);
+    background-size: cover;
+    background-position: top;
+
+    &__textbox {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+    }
+
+    &__shape {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+
+.ui.large.fluid.button.button--white.button--animated.save-button {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 250px;
+    
+    
+    
+    // -webkit-shape-outside: circle(50% at 50% 50%);
+    // shape-outside: circle(50% at 50% 50%);
+    // -webkit-clip-path: circle(50% at 50% 50%);
+    // clip-path: circle(50% at 50% 50%);
+    // display: flex;
+    
+    
+    
+
+}
+
+span.btn-txt {
+    justify-content: center;
+    font-size: 1.28571429em;
+    text-transform: uppercase;
+
+}
+
+#text {
+    display: flex;
+    align-content: center;
+}
+
+.btn-txt {
+    display: flex;
+    align-items: center;
+    
+    // background-color: red;
+}
+
+.middle.aligned.content {
+    text-align: center;
+    // padding: 15px 50px 0 0;
+}
+
+.descriptions {
+    margin-top: 6rem;
+    font-style: italic;
+}
+
+.ui.items>.item>.content {
+    padding-top: 1.5rem;
+}
+

@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Form,Grid } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
-import './Login.css';
+import './_Login.scss';
 
 
 const Login = (props) => {
@@ -57,41 +57,53 @@ const onClick = () => {
 }
 
 return (
-    <Grid  className="container">
-            <Grid.Column width='8' >
-                <h1>Login</h1>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Input required
-                        fluid
-                        label='Email'
-                        placeholder='Email'
-                        id='form-input-email'
-                        name='email'
-                        value={email}
-                        onChange={handleChange}
-                    />
-                    <Form.Input required
-                        fluid
-                        label='Password'
-                        placeholder='password'
-                        name='password'
-                        value={password}
-                        type="password"
-                        minLength={4}
-                        onChange={handleChange}
-                    />
-                    <Form.Button
-                        fluid
-                        type="submit"
-                    >Login</Form.Button>
-                    <Form.Button
-                        fluid
-                        type="back"
-                        onClick={onClick}
-                    >Back</Form.Button>
-                </Form>
-            </Grid.Column>
-    </Grid>
+    <div className="login-container">
+        
+            <div className="login-container login-container__form">
+                    
+                    <Form onSubmit={handleSubmit}>
+                        <div >
+                            <h2 className="heading-secondary u-center-text">
+                                Login
+                            </h2>
+                        </div>
+                        <Form.Input required
+                            fluid
+                            label='Email'
+                            placeholder='Email'
+                            id='form-input-email'
+                            name='email'
+                            value={email}
+                            onChange={handleChange}
+                        />
+                        <Form.Input required
+                            fluid
+                            label='Password'
+                            placeholder='password'
+                            name='password'
+                            value={password}
+                            type="password"
+                            minLength={4}
+                            onChange={handleChange}
+                        />
+                        <div style={{paddingBottom: 10}}>
+                        <Button
+                            fluid
+                            className="button--blue"
+                            size='large'
+                            type="submit"
+                        >Login</Button>
+                        </div>
+                        <Button
+                            fluid
+                            className="button--blue"
+                            type="back"
+                            onClick={onClick}
+                        >Back</Button>
+                    </Form>
+                    
+            </div> 
+        </div>                                 
     
 
     )

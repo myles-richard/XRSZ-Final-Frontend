@@ -50,7 +50,7 @@ const panes = [
   },
 ]
     return (
-        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        <Tab className="tab-box" menu={{  secondary: true, pointing: true }} panes={panes} />
       )
 }
 
