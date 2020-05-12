@@ -22,3 +22,4 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const GET_ONE = 'GET_ONE';
 export const SAVE_WORKOUT = 'SAVE_WORKOUT';
+export const DELSAVE_WORKOUT = 'DELSAVE_WORKOUT';

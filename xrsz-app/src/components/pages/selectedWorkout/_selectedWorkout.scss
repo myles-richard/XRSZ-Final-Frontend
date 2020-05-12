@@ -28,6 +28,8 @@
 .ui.large.fluid.button.button--white.button--animated.save-button {
     width: 15rem;
     height: 15rem;
+    border-radius: 250px;
+    
     
     
     // -webkit-shape-outside: circle(50% at 50% 50%);
@@ -38,6 +40,13 @@
     
     
     
+
+}
+
+span.btn-txt {
+    justify-content: center;
+    font-size: 1.28571429em;
+    text-transform: uppercase;
 
 }
 

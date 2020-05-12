@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Modal,Button, Form } from 'semantic-ui-react';
+import { Card, Modal,Button, Form, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import './_profile.scss';
 import AuthContext from '../../../context/auth/authContext';
 import Moment from 'react-moment';
-import Workouts from '../../workouts/Workouts';
 
 const Profile = (props) => {
 
     const authContext = useContext(AuthContext);
     
     //take methods out of authcontext
-    const { update, user, setCurrent, deleteUser, current } = authContext;
+    const { update, user, setCurrent, deleteUser, current, getUser } = authContext;
 
      //add component level state
      const [newUser, setUser] = useState({
@@ -22,6 +22,7 @@ const Profile = (props) => {
     const { goals, email, name, _id, savedWorkouts } = user;
 
     useEffect(() => {
+        getUser();
         if(current !== null) {
             setUser(current)
         } else {
@@ -112,11 +113,19 @@ const Profile = (props) => {
                                       
                     
             </div>
-            <div class="u-left-text u-margin-bottom-big">
-                <h3 class="heading-secondary">
-                    Saved Exercises
-                </h3>
-                <Workouts workouts={savedWorkouts}/>
+            
+            <div className="saved-workouts" style={{ marginTop: 20 }}>
+                <Card className='saved-card' as={Link} to="/savedworkouts">
+                    {/* <Grid centered> */}
+                        {/* <Grid.Column floated='left' width={5} > */}
+                    <Card.Content>
+                            <Card.Header className="card-header">
+                                <span className='title'>Saved workouts collection</span>
+                                <span className='arrow'> <Icon name="arrow right" size='small'/></span>
+                            </Card.Header>
+                        <Card.Meta>{savedWorkouts.length} workout saved</Card.Meta>
+                    </Card.Content>
+                </Card>
             </div>
         </div>
         

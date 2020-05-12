@@ -36,5 +36,22 @@
     padding-top: 6rem;
 }
 
+a.ui.card.saved-card {
+    box-shadow: 0 3rem 6rem rgba(0,0,0, .1);
+    background-color: transparent;
+    width: 290px;
+}
+.saved-workouts {
+    display: flex;
+    justify-content: center;
+}
+
+.header.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
 
 

@@ -16,12 +16,12 @@ export const WorkoutItem = ({ workout }) => {
     
     return (
         <div className="workout__list">
-        <Link to={{
-            pathname: "/selected",
-            state: {
-                current: workout
-            }}}>
-            <Card raised style={{ padding: 10, margin: 10 }} onClick={() => setCurrent()} >
+            <Card as={Link} to={{
+                pathname: "/selected",
+                state: {
+                    current: workout
+                }
+            }} raised style={{ padding: 10, margin: 10 }} onClick={() => setCurrent()} >
                     <Comment.Group size="big">
                         <Comment>
                             <Comment.Avatar src="https://picsum.photos/200"/>
@@ -34,7 +34,7 @@ export const WorkoutItem = ({ workout }) => {
                         </Comment>
                     </Comment.Group>
                 </Card>
-            </Link>
+            {/* </Link> */}
         </div>
         
     )

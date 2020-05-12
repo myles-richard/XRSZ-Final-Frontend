@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { Button, Item, Container } from 'semantic-ui-react';
 import { Exercises } from './Exercises';
 import AuthContext from '../../../context/auth/authContext';
@@ -12,12 +11,9 @@ const SelectedWorkout = (props) => {
 
     //take methods out of authcontext
     const { user } = authContext;
-    const { saveWorkout } = workoutContext;
+    const { saveWorkout, delSaveWorkout, isSaved } = workoutContext;
 
-    
-    // console.log('about', props.location.state)
     const workouts = props.location.state;
-    // console.log(workouts.current.exercise)
 
     const handleSave = (e) => {
         e.preventDefault();
@@ -25,7 +21,30 @@ const SelectedWorkout = (props) => {
         console.log(workouts);
         // console.log(current);
         saveWorkout(user, workouts);
+        
     }
+    
+    const handleDel = (e) => {
+        e.preventDefault();
+        console.log('handel pressed');
+        delSaveWorkout(user, workouts);
+    }
+
+    const saveBtn = (
+        <figure className="selected__shape">
+            <Button className=" button--white button--animated save-button"  fluid size='large' onClick={handleSave}>
+            <span className='btn-txt'>save</span>
+            </Button>
+        </figure>
+    )
+    const delBtn = (
+        <figure className="selected__shape">
+            <Button className=" button--white button--animated save-button"  fluid size='large' onClick={handleDel}>
+                <span className='btn-txt'>delete</span>
+            </Button>
+        </figure>
+    )
+    
     
     return (
         <>
@@ -35,11 +54,13 @@ const SelectedWorkout = (props) => {
                     <h1 className="heading-primary">
                         <span className="heading-primary--main">{workouts.current.name}</span>
                     </h1>
-                    <figure className="selected__shape">
+                    {isSaved ? delBtn : saveBtn  }
+                    {/* <figure className="selected__shape">
                         <Button className=" button--white button--animated save-button"  fluid size='large' onClick={handleSave}>
                             save
                         </Button>
-                    </figure>
+                        <Button onClick={handleDel}>Delete</Button>
+                    </figure> */}
                     <p className="descriptions">
                         {workouts.current.description}
                     </p>

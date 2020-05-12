@@ -10,8 +10,8 @@ export const Workout = () => {
 
     useEffect(() => {
         authContext.getUser();
-        //es-lint-disable-next-line
-    }, [authContext])
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <div className="workoutpage">
