@@ -44,7 +44,7 @@ const WorkoutState = props => {
     }
    
 
-    // Save Workout
+    // Save Workouts
        const saveWorkout = async (user, workouts) => {
            try {
                const res = await axios.put(`${endpoint}/workout/${user._id}`, workouts, {
