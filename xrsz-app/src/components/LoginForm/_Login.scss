@@ -1,0 +1,33 @@
+
+
+.login-container__form {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.ui.form {
+    height: 95vh;
+    width: 70%;
+    margin: auto 0;
+   
+}
+
+.button.ui.fluid.button.button--blue {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    font-size: 1.6rem;
+}
+
+.ui.input {
+    display: inline-block;
+    font-size: 1.6rem;
+}
+
+.ui.form .field>label {
+    font-size: 1.6rem;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Form,Grid } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 
@@ -62,58 +62,74 @@ const Register = props => {
     }
 
 return (
-    <Grid container >
+    <div className="login-container">
+        
+            <div className="login-container login-container__form">
+                    
+                    
+                        
+    {/* <Grid container >
             <Grid.Column width='8' >
-                <h1>Sign Up</h1>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Input required
-                        fluid
-                        label='Username'
-                        placeholder='name'
-                        id='form-input-name'
-                        name='name'
-                        value={name}
-                        onChange={handleChange}
-                    />
-                    <Form.Input required
-                        fluid
-                        label='Email'
-                        placeholder='email'
-                        name='email'
-                        value={email}
-                        onChange={handleChange}
-                    />
-                    <Form.Input required
-                        fluid
-                        label='Password'
-                        placeholder='password'
-                        name='password'
-                        value={password}
-                        type="password"
-                        minLength={4}
-                        onChange={handleChange}
-                    />
-                        <Form.Input required 
-                        fluid
-                        label='Confirm Password'
-                        placeholder='confirm password'
-                        name='confirmPassword'
-                        value={confirmPassword}
-                        type="password"
-                        onChange={handleChange}
-                    />
-                    <Form.Button
-                        fluid
-                        type="submit"
-                    >Create Account</Form.Button>
-                    <Form.Button
-                        fluid
-                        type="back"
-                        onClick={onClick}
-                    >Back</Form.Button>
-                </Form>
-            </Grid.Column>
-    </Grid>
+                <h1>Sign Up</h1> */}
+                            <Form onSubmit={handleSubmit}>
+                                <div >
+                                    <h2 className="heading-secondary u-center-text">
+                                        Register
+                                    </h2>
+                                </div>
+                                <Form.Input required
+                                    fluid
+                                    label='Username'
+                                    placeholder='name'
+                                    id='form-input-name'
+                                    name='name'
+                                    value={name}
+                                    onChange={handleChange}
+                                />
+                                <Form.Input required
+                                    fluid
+                                    label='Email'
+                                    placeholder='email'
+                                    name='email'
+                                    value={email}
+                                    onChange={handleChange}
+                                />
+                                <Form.Input required
+                                    fluid
+                                    label='Password'
+                                    placeholder='password'
+                                    name='password'
+                                    value={password}
+                                    type="password"
+                                    minLength={4}
+                                    onChange={handleChange}
+                                />
+                                    <Form.Input required 
+                                    fluid
+                                    label='Confirm Password'
+                                    placeholder='confirm password'
+                                    name='confirmPassword'
+                                    value={confirmPassword}
+                                    type="password"
+                                    onChange={handleChange}
+                                />
+                                <div style={{paddingBottom: 10}}>
+                                <Button
+                                    fluid
+                                    type="submit"
+                                    className="button--blue"
+                                >Create Account</Button>
+                                </div>
+                                <Button
+                                    fluid
+                                    type="back"
+                                    className="button--blue"
+                                    onClick={onClick}
+                                >Back</Button>
+                            </Form>
+                </div>
+        </div>
+           
     
 
     )

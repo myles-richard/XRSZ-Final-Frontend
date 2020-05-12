@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Grid, Modal,Button, Form, Container } from 'semantic-ui-react';
-import './Profile.css';
+import { Card, Modal,Button, Form, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import './_profile.scss';
 import AuthContext from '../../../context/auth/authContext';
 import Moment from 'react-moment';
 
@@ -9,7 +10,7 @@ const Profile = (props) => {
     const authContext = useContext(AuthContext);
     
     //take methods out of authcontext
-    const { update, user, setCurrent, deleteUser, current } = authContext;
+    const { update, user, setCurrent, deleteUser, current, getUser } = authContext;
 
      //add component level state
      const [newUser, setUser] = useState({
@@ -18,9 +19,10 @@ const Profile = (props) => {
         goals: ''
         })
 
-    const { goals, email, name, _id } = user;
+    const { goals, email, name, _id, savedWorkouts } = user;
 
     useEffect(() => {
+        getUser();
         if(current !== null) {
             setUser(current)
         } else {
@@ -41,7 +43,6 @@ const Profile = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('hi')
         update(newUser)
     }
 
@@ -53,70 +54,82 @@ const Profile = (props) => {
     
 
     return (
+        
         <div className="profiles">
-            <Container>
-                <Grid centered={true}>
-                    <Grid.Row>
-                        <Grid.Column >
-                            <Card centered={true}>
-                                <Card.Content>
-                                    <Card.Header>{user.name}</Card.Header>
-                                    <Card.Meta>Email: {user.email}</Card.Meta>
-                                    <Card.Meta>Joined: <Moment format='MM/DD/YYYY'>{user.date}</Moment></Card.Meta>
-                                    <Card.Description>
-                                    Goals: {user.goals}
-                                    </Card.Description>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row >
-                
-                            <Button onClick={onDelete} >Delete Profile</Button>
+            <div className="profiles__card">
+            
+                                <Card className="profile" >
+                                    <Card.Content>
+                                        <Card.Header className="username">{user.name}</Card.Header>
+                                        <Card.Meta>Email: {user.email}</Card.Meta>
+                                        <Card.Meta>Joined: <Moment format='MM/DD/YYYY'>{user.date}</Moment></Card.Meta>
+                                        <Card.Description>
+                                        Goals: {user.goals}
+                                        </Card.Description>
+                                    </Card.Content>
+                    
 
-                            <Modal closeIcon dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
-                                <Modal.Header>Edit Profile Info</Modal.Header>
-                                <Modal.Content>
-                                    <Form onSubmit={handleSubmit}>
-                                    <Form.Input 
-                                        fluid
-                                        label='name'
-                                        id='form-input-name'
-                                        name='name'
-                                        value={newUser.name}
-                                        onChange={handleChange}
-                                    />
-                                    <Form.Input 
-                                        fluid
-                                        label='Email'
-                                        id='form-input-email'
-                                        name='email'
-                                        value={newUser.email}
-                                        onChange={handleChange}
-                                    />
-                                    <Form.Input 
-                                        fluid
-                                        label='goals'
-                                        id='form-input-goals'
-                                        name='goals'
-                                        value={newUser.goals}
-                                        onChange={handleChange}
-                                    />
-                                    <Form.Button
-                                        fluid
-                                        type="submit"
-                                        
-                                    >Update</Form.Button>
-                                    </Form>
-                                </Modal.Content>
-                            </Modal>
+                                    <Modal closeIcon centered basic size='small' dimmer='blurring' trigger={<Button onClick={() => setCurrent(user)}>Edit Profile</Button>}>
+                                        <Modal.Header>Edit Profile Info</Modal.Header>
+                                        <Modal.Content>
+                                            <Form onSubmit={handleSubmit}>
+                                            <Form.Input 
+                                                fluid
+                                                label='name'
+                                                id='form-input-name'
+                                                name='name'
+                                                value={newUser.name}
+                                                onChange={handleChange}
+                                            />
+                                            <Form.Input 
+                                                fluid
+                                                label='Email'
+                                                id='form-input-email'
+                                                name='email'
+                                                value={newUser.email}
+                                                onChange={handleChange}
+                                            />
+                                            <Form.Input 
+                                                fluid
+                                                label='goals'
+                                                id='form-input-goals'
+                                                name='goals'
+                                                value={newUser.goals}
+                                                onChange={handleChange}
+                                            />
+                                            <Form.Button
+                                                fluid
+                                                type="submit"
+                                                
+                                            >Update</Form.Button>
+                                            </Form>
+                                        </Modal.Content>
+                                    </Modal>
+                                    <Button className="button--blue" onClick={onDelete} >Delete Profile</Button>
+                                </Card>
+                                
+                        
                     
-                    </Grid.Row>
-                </Grid>
+                                      
                     
-                    
-            </Container>
+            </div>
+            
+            <div className="saved-workouts" style={{ marginTop: 20 }}>
+                <Card className='saved-card' as={Link} to="/savedworkouts">
+                    {/* <Grid centered> */}
+                        {/* <Grid.Column floated='left' width={5} > */}
+                    <Card.Content>
+                            <Card.Header className="card-header">
+                                <span className='title'>Saved workouts collection</span>
+                                <span className='arrow'> <Icon name="arrow right" size='small'/></span>
+                            </Card.Header>
+                        <Card.Meta>{savedWorkouts.length} workout saved</Card.Meta>
+                    </Card.Content>
+                </Card>
+            </div>
         </div>
+        
+    
     )
 }
 

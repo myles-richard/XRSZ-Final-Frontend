@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './components/layout/NavBar';
-import Footer from './components/layout/Footer';
-import Workout from './components/pages/Workout';
-import Landing from './components/pages/Landing';
-import Musclegroup from './components/pages/Musclegroup';
-import WorkoutType from './components/pages/WorkoutType';
+import NavBar from './components/layout/NavBar/NavBar';
+import Footer from './components/layout/Footer/Footer';
+import Workout from './components/pages/mainpage/Workout';
+import Landing from './components/pages/landing/Landing';
+import Musclegroup from './components/pages/musclegroup/Musclegroup';
+import WorkoutType from './components/pages/musclegroup/WorkoutType';
+import selectedWorkout from './components/pages/selectedWorkout/selectedWorkout';
+import SavedWorkout from './components/pages/savedworkouts/SavedWorkout';
 import Alerts from './components/layout/Alerts';
-import './App.css';
+import './App.scss';
 import Register from './components/RegisterForm/Register';
 import Login from './components/LoginForm/Login';
 import PrivateRoute from './components/config/PrivateRoute';
@@ -42,6 +44,8 @@ const App = () => {
                   <Route exact path='/login' component={Login} />
                   <PrivateRoute exact path='/profile' component={Profile} />
                   <PrivateRoute exact path='/workouttype' component={WorkoutType} />
+                  <PrivateRoute exact path='/selected' component={selectedWorkout} />
+                  <PrivateRoute exact path='/savedworkouts' component={SavedWorkout} />
                 </Switch>
             
           {/* </div> */}

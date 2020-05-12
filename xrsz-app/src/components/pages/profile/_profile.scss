@@ -1,0 +1,57 @@
+
+.profiles {
+    // width: 75%;
+    margin: auto 0;
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(26, 26, 26, 0.8)),
+        url(../../../images/barbells-on-gray-surface-669584.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+
+    &__card {
+        display: flex;
+        justify-content: center;
+        
+        
+        
+    }
+
+    
+}
+
+.ui.card.profile {
+    box-shadow: 0 3rem 6rem rgba(0,0,0, .1);
+    background-color: transparent;
+    width: 290px;
+    
+}
+
+.u-left-text.u-margin-bottom-big {
+    padding-top: 6rem;
+}
+
+a.ui.card.saved-card {
+    box-shadow: 0 3rem 6rem rgba(0,0,0, .1);
+    background-color: transparent;
+    width: 290px;
+}
+.saved-workouts {
+    display: flex;
+    justify-content: center;
+}
+
+.header.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+

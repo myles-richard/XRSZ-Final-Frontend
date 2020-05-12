@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import WorkoutContext from './workoutContext';
+import AuthContext from '../auth/authContext';
 import workoutReducer from './workoutReducer';
 import axios from 'axios';
 import { 
@@ -7,6 +8,8 @@ import {
     GET_ONE,
     SET_CURRENT,
     CLEAR_CURRENT,
+    SAVE_WORKOUT,
+    DELSAVE_WORKOUT
 } from '../types';
 // initial state and actions to perform 
 const WorkoutState = props => {
@@ -14,11 +17,14 @@ const WorkoutState = props => {
         workout: [],
         current: null,
         error: null,
-        modalOpen: false,
+        workouts: null,
+        isSaved: null,
 
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
     const [state, dispatch] = useReducer(workoutReducer, initialState);
+
+    const authContext = useContext(AuthContext);
 
     const endpoint = "http://localhost:4000/api/v1";
 
@@ -54,7 +60,6 @@ const WorkoutState = props => {
                 type: GET_ONE,
                 payload: res.data
             });
-
         } catch (err) {
             console.log(err)
             // dispatch({
@@ -62,6 +67,51 @@ const WorkoutState = props => {
             //     payload: err.response.msg
             // });
         }
+    }
+
+       // Save Workout
+       const saveWorkout = async (user, workouts) => {
+           try {
+               const res = await axios.put(`${endpoint}/workout/${user._id}`, workouts, {
+                   headers: {
+                       "Content-Type": "application/json",
+                   }
+
+               });
+               console.log(res)
+               console.log(workouts)
+               dispatch({ 
+                   type: SAVE_WORKOUT, 
+                   payload: res.data 
+                });
+                authContext.getUser();
+
+           } catch (err) {
+               console.log(err)
+           }
+        
+    }
+
+       // Delete save Workout
+       const delSaveWorkout = async (user, workouts) => {
+           try {
+               const res = await axios.put(`${endpoint}/workout/unsave/${user._id}`, workouts, {
+                   headers: {
+                       "Content-Type": "application/json",
+                   }
+
+               });
+               console.log(res)
+               console.log(workouts)
+               dispatch({ 
+                   type: DELSAVE_WORKOUT, 
+                   payload: res.data 
+                });
+                authContext.getUser();
+           } catch (err) {
+               console.log(err)
+           }
+        
     }
 
         // Set Current 
@@ -82,11 +132,14 @@ const WorkoutState = props => {
             error: state.error,
             workoutOpen: state.workoutOpen,
             current: state.current,
-            modalOpen: state.modalOpen,
+            workouts: state.workouts,
+            isSaved: state.isSaved,
             getWorkouts,
             getOne,
             setCurrent,
-            clearCurrent
+            clearCurrent,
+            saveWorkout,
+            delSaveWorkout
         }}>
             { props.children }
         </WorkoutContext.Provider>

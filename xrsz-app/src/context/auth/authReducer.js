@@ -10,7 +10,7 @@ import { REGISTER_SUCCESS,
     CLEAR_CURRENT,
     DELETE_SUCCESS,
     DELETE_FAIL,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
 } from "../types";
 
 
