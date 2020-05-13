@@ -84,7 +84,7 @@ const AuthState = props => {
 
     // Login User 
     const login = async user => {
-
+        console.log(endpoint);
         try{
             const res = await axios.post(`${endpoint}/auth`, user,{
                 headers: {
@@ -120,7 +120,7 @@ const AuthState = props => {
     // Update User
     const update = async current => {
         try{
-            const res = await axios.put(`http://localhost:4000/api/v1/users/${current._id}`, current,{
+            const res = await axios.put(`${endpoint}/users/${current._id}`, current,{
                 headers: {
                     "Content-Type": "application/json",
                 }
@@ -144,7 +144,7 @@ const AuthState = props => {
     // delete user 
     const deleteUser = async id => {
         try{
-            const res = await axios.delete(`http://localhost:4000/api/v1/users/${id}`);
+            const res = await axios.delete(`${endpoint}/users/${id}`);
 
             dispatch({
                 type: DELETE_SUCCESS,

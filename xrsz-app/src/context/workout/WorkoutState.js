@@ -15,7 +15,7 @@ import {
 const WorkoutState = props => {
     const initialState = {
         workout: [],
-        current: null,
+        current: null, 
         error: null,
         workouts: null,
         isSaved: null,
@@ -23,6 +23,7 @@ const WorkoutState = props => {
     };
     // state allows us to access anything in our state, dispatch allows us to dispatch objects to the reducer
     const [state, dispatch] = useReducer(workoutReducer, initialState);
+    const authContext = useContext(AuthContext);
 
     const endpoint = process.env.REACT_APP_API_URL;
 
