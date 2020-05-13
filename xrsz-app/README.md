@@ -2,6 +2,8 @@
 ## XRSZ App
 This project was made for people who have a hard time staying active during these tough times. You don't need a gym or a lot of weights to stay active. Physical activity and exercise can have immediate and long-term health benifits, but most importantly it can give you more energy and improve your everyday life. 
 
+<a href="https://xrszworkout.herokuapp.com/">XRSZ Website</a>
+
 ### `Technologies Used`
 HTML, CSS, Semantic-UI-React, NodeJS, MonogoDB, React
 
